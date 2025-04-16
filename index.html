@@ -21,6 +21,26 @@
       100% { background-position: 0% 50%; }
     }
 
+    header {
+      background-color: rgba(255, 255, 255, 0.6);
+      padding: 0.5rem 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .top-links a {
+      margin: 0 1.5rem;
+      color: #3a2e2b;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .top-links a:hover {
+      text-decoration: underline;
+    }
+
     .container {
       max-width: 800px;
       margin: 0 auto;
@@ -32,7 +52,6 @@
       text-align: center;
       margin-bottom: 1rem;
       color: #4d3c34;
-      font-family: 'Courier New', Courier, monospace;
       animation: float 4s ease-in-out infinite;
     }
 
@@ -127,7 +146,7 @@
 
     .highlight-text {
       background: rgba(255, 255, 255, 0.7);
-      padding: 1rem;
+      padding: 1.5rem;
       border-radius: 8px;
       box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
       margin-bottom: 2rem;
@@ -137,9 +156,27 @@
       border-radius: 12px;
       box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     }
+
+    .wedding-text {
+      text-align: center;
+      font-weight: bold;
+      margin: 3rem 0;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.6);
+      border-radius: 8px;
+      line-height: 1.8;
+    }
   </style>
 </head>
 <body>
+
+  <header>
+    <div class="top-links">
+      <a href="#playlist">playlist</a>
+      <a href="#contact">contact</a>
+    </div>
+  </header>
+
   <div class="container">
     <h1>MakesenSelection</h1>
     <h2>Paysagisme Musical</h2>
@@ -151,7 +188,7 @@
       </strong>
     </p>
 
-    <!-- Carrousel intégré -->
+    <!-- Carrousel -->
     <div class="carousel-wrapper">
       <div class="carousel-fade">
         <img src="images/radiodb.jpg" class="carousel-image active" alt="Ambiance 1">
@@ -170,7 +207,6 @@
         <span class="dot" onclick="showSlide(4)"></span>
         <span class="dot" onclick="showSlide(5)"></span>
         <span class="dot" onclick="showSlide(6)"></span>
-        <span class="dot" onclick="showSlide(7)"></span>
       </div>
     </div>
 
@@ -181,17 +217,24 @@
       <p>Avec près de 15 ans de vie à l'étranger dont 10 années à Berlin, la fibre multi-culturelle s'est développée et il me sera donc plus que naturel d'évoluer dans ce genre de contexte.</p>
       <p>Mélomane depuis un jeune âge, dès 18 ans je passe mes premiers disques sur Radio Campus à Orléans, pour ensuite migrer vers mes premières expériences de bar dansant sur Annecy lors de mes études, dans un lieu mythique fermé depuis.</p>
       <p>Bercé par la French Touch (Daft Punk, Cassius, etc...), les sirènes de "l'underground" berlinois retentirons fort, au point même d'en pousser quelques portes de clubs pour y jouer des disques. Radios, bars, clubs, festivals, pyjama parties, banquets, festivals, je m'adapte tout en gardant un fil rouge qualitatif et aventureux.</p>
-      <p>Pour les mariages, immersion dans des zones de confort musical pour le plaisir de tous, puis dans des eaux plus profondes selon l'aura de la nuit ! Prestation musicale avec ou sans sonorisation / lumières. Option Bar à Vinyles disponible. Setup vinyle & digital. Basé dans le Lot (46), déplacements possibles.</p>
     </div>
 
-    <div class="audio-player soundcloud-player">
-      <p><em>Un aperçu de mes émissions de radio :</em></p>
+    <div class="wedding-text">
+      Pour les mariages, immersion dans des zones de confort musical pour le plaisir de tous, puis dans des eaux plus profondes selon l'aura de la nuit !<br>
+      Prestation musicale avec ou sans sonorisation / lumières. Option Bar à Vinyles disponible.<br>
+      Setup vinyle & digital. Basé dans le Lot (46), déplacements possibles.
+    </div>
+
+    <div class="audio-player soundcloud-player" id="playlist">
+      <p><em>Écoutez un aperçu :</em></p>
       <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
         src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/m-a-x-e-n-c-e/sets/kir-shows&color=%23f7f1eb&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false">
       </iframe>
     </div>
 
-    <p style="text-align: center; margin-top: 3rem;">Contact : Maxence - maxhansallein@protonmail.com  /  07 55 61 45 67</p>
+    <p id="contact" style="text-align: center; margin-top: 3rem;">
+      Contact : Maxence - maxhansallein@protonmail.com  /  07 55 61 45 67
+    </p>
   </div>
 
   <footer>
@@ -206,4 +249,16 @@
     function showSlide(index) {
       images[current].classList.remove('active');
       dots[current].classList.remove('active');
-     
+      current = index;
+      images[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    setInterval(() => {
+      let next = (current + 1) % images.length;
+      showSlide(next);
+    }, 5000);
+  </script>
+
+</body>
+</html>
