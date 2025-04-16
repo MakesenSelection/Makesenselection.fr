@@ -6,21 +6,19 @@
   <title>MakesenSelection - Paysagisme Musical</title>
   <style>
     body {
-  margin: 0;
-  font-family: 'Georgia', serif;
-  background: linear-gradient(135deg, #f7f1eb, #e8e0ff, #d3f0e2);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
-  color: #3a2e2b;
-  line-height: 1.6;
-}
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(135deg, #f7f1eb, #e8e0ff, #d3f0e2);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #3a2e2b;
+      line-height: 1.6;
+    }
 
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .container {
@@ -150,7 +148,6 @@
         <img src="images/radiodb.jpg" class="carousel-image active" alt="Ambiance 1">
         <img src="images/tmwedding.jpg" class="carousel-image" alt="Ambiance 2">
         <img src="images/cac21.jpg" class="carousel-image" alt="Ambiance 3">
-    
       </div>
       <div class="carousel-dots">
         <span class="dot active" onclick="showSlide(0)"></span>
@@ -159,7 +156,7 @@
       </div>
     </div>
 
-    <p style="text-align: center; margin-top: 3rem;">Contact : maxhansallein@protonmail.com  /  07 55 61 45 67</p>
+    <p style="text-align: center; margin-top: 3rem;">Contact : maxhansallein@protonmail.com / 07 55 61 45 67</p>
   </div>
 
   <footer>
@@ -183,7 +180,7 @@
       showSlide((current + 1) % images.length);
     }
 
-    setInterval(nextSlide, 5000); // Auto slide every 5s
+    setInterval(nextSlide, 5000);
   </script>
 </body>
 </html>
