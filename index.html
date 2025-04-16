@@ -8,9 +8,9 @@
     body {
       margin: 0;
       font-family: 'Georgia', serif;
-      background: linear-gradient(135deg, #f7f1eb, #e8e0ff, #d3f0e2);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+      background: linear-gradient(135deg, #ffe4c4, #cceeff, #f2c879, #ffdab9);
+      background-size: 600% 600%;
+      animation: gradientBG 10s ease infinite;
       color: #3a2e2b;
       line-height: 1.6;
     }
@@ -84,6 +84,11 @@
       opacity: 0;
       transition: opacity 1s ease-in-out;
       border-radius: 12px;
+      background-color: #f7f1eb;
+    }
+
+    .carousel-image.img-cac21 {
+      object-fit: contain;
     }
 
     .carousel-image.active {
@@ -128,7 +133,7 @@
     <p>Sélections éclectiques, sensibles et hors des sentiers battus : jazz, ambient, hard-lounge, soft rock, soul, disco, funk, house de New York, douceurs afro-brésiliennes, raretés groove et pépites intemporelles.</p>
     <p>Chaque set est une histoire, un voyage sonore qui respecte l’instant, sa temporalité, son énergie propre. Pas de Top 50, mais des morceaux cultes, connus et reconnus, sélectionnés pour leur qualité et leur puissance évocatrice.</p>
     <p>Entre classe et chaleur, entre danse et contemplation : une esthétique musicale pensée pour toucher corps et esprits.</p>
-    <p>Setup vinyle & digital. Basé dans le Lot (46), déplacements possibles.</p>
+    <p>Setup vinyle & digital. Basé dans le Lot (46), déplacements possibles. 07 55 61 45 67</p>
 
     <div class="audio-player">
       <p><em>Écoutez un aperçu :</em></p>
@@ -142,12 +147,12 @@
       <a href="https://open.spotify.com/user/TON_PROFIL" target="_blank">Spotify</a>
     </div>
 
-    <!-- Carrousel intégré -->
+    <!-- Carrousel -->
     <div class="carousel-wrapper">
       <div class="carousel-fade">
         <img src="images/radiodb.jpg" class="carousel-image active" alt="Ambiance 1">
         <img src="images/tmwedding.jpg" class="carousel-image" alt="Ambiance 2">
-        <img src="images/cac21.jpg" class="carousel-image" alt="Ambiance 3">
+        <img src="images/cac21.jpg" class="carousel-image img-cac21" alt="Ambiance 3">
       </div>
       <div class="carousel-dots">
         <span class="dot active" onclick="showSlide(0)"></span>
