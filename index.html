@@ -9,7 +9,7 @@
       margin: 0;
       font-family: 'Georgia', serif;
       background: #f7f1eb;
-      color: #3a2e2b;
+      color: #3a1e2b;
       line-height: 1.6;
     }
 
@@ -20,11 +20,19 @@
     }
 
     h1 {
-      font-size: 3rem; /* Augmenter la taille du titre pour un meilleur impact */
+      font-size: 3rem;
       text-align: center;
-      margin-bottom: 3rem; /* Plus d'espace sous le titre pour aérer */
+      margin-bottom: 1rem;
       color: #4d3c34;
-      font-family: 'RetroFont', sans-serif; /* Police rétro */
+      font-family: 'Courier New', monospace;
+    }
+
+    h2 {
+      text-align: center;
+      font-weight: normal;
+      margin-bottom: 3rem;
+      font-style: italic;
+      color: #5a453b;
     }
 
     p {
@@ -36,21 +44,6 @@
       text-align: center;
     }
 
-    .photos {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin: 2rem 0;
-    }
-
-    .photos img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
     .links a {
       color: #3a2e2b;
       text-decoration: none;
@@ -60,6 +53,54 @@
 
     .links a:hover {
       text-decoration: underline;
+    }
+
+    .carousel-wrapper {
+      max-width: 800px;
+      margin: 3rem auto;
+      position: relative;
+    }
+
+    .carousel-fade {
+      position: relative;
+      width: 100%;
+      height: 450px;
+      overflow: hidden;
+    }
+
+    .carousel-image {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      border-radius: 12px;
+    }
+
+    .carousel-image.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .carousel-dots {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .carousel-dots .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      background-color: #aaa;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .carousel-dots .dot.active {
+      background-color: #3a2e2b;
     }
 
     footer {
@@ -74,24 +115,18 @@
   <div class="container">
     <h1>MakesenSelection</h1>
     <h2>Paysagisme Musical</h2>
+
     <p>Ambiances musicales raffinées pour mariages, banquets, fêtes privées et événements intimistes.</p>
     <p>Sélections éclectiques, sensibles et hors des sentiers battus : jazz, ambient, hard-lounge, soft rock, soul, disco, funk, house de New York, douceurs afro-brésiliennes, raretés groove et pépites intemporelles.</p>
     <p>Chaque set est une histoire, un voyage sonore qui respecte l’instant, sa temporalité, son énergie propre. Pas de Top 50, mais des morceaux cultes, connus et reconnus, sélectionnés pour leur qualité et leur puissance évocatrice.</p>
     <p>Entre classe et chaleur, entre danse et contemplation : une esthétique musicale pensée pour toucher corps et esprits.</p>
     <p>Setup vinyle & digital. Basé dans le Lot (46), déplacements possibles. 07 55 61 45 67</p>
 
-    <div class="photos">
-      <img src="images/photo1.jpg" alt="Photo d'ambiance DJ">
-      <img src="images/photo2.jpg" alt="Matériel vinyle et digital">
-    </div>
-
     <div class="audio-player">
       <p><em>Écoutez un aperçu :</em></p>
-     <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
-  src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/m-a-x-e-n-c-e/sets/kir-shows&color=%23f7f1eb&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false">
-</iframe>
-
-
+      <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/m-a-x-e-n-c-e/sets/kir-shows&color=%23f7f1eb&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false">
+      </iframe>
     </div>
 
     <div class="streaming-links links">
@@ -99,11 +134,46 @@
       <a href="https://open.spotify.com/user/TON_PROFIL" target="_blank">Spotify</a>
     </div>
 
-    <p style="text-align: center; margin-top: 3rem;">Contact : maxhansallein@</p>
+    <!-- Carrousel intégré -->
+    <div class="carousel-wrapper">
+      <div class="carousel-fade">
+        <img src="images/radiodb.jpg" class="carousel-image active" alt="Ambiance 1">
+        <img src="images/tmwedding.jpg" class="carousel-image" alt="Ambiance 2">
+        <img src="images/cac21.jpg" class="carousel-image" alt="Ambiance 3">
+        <img src="images/mogafestival.jpg" class="carousel-image" alt="Ambiance 4">
+      </div>
+      <div class="carousel-dots">
+        <span class="dot active" onclick="showSlide(0)"></span>
+        <span class="dot" onclick="showSlide(1)"></span>
+        <span class="dot" onclick="showSlide(2)"></span>
+      </div>
+    </div>
+
+    <p style="text-align: center; margin-top: 3rem;">Contact : maxhansallein@protonmail.com  /  07 55 61 45 67</p>
   </div>
 
   <footer>
-    &copy; 2025 – MakesenSelection - Paysagisme musical
+    &copy; 2025 – MakesenSelection - Paysagisme Musical
   </footer>
+
+  <script>
+    let current = 0;
+    const images = document.querySelectorAll('.carousel-image');
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlide(index) {
+      images[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = index;
+      images[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    function nextSlide() {
+      showSlide((current + 1) % images.length);
+    }
+
+    setInterval(nextSlide, 5000); // Auto slide every 5s
+  </script>
 </body>
 </html>
