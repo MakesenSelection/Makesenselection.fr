@@ -9,9 +9,8 @@
       margin: 0;
       font-family: 'Courier New', Courier, monospace;
       background: linear-gradient(135deg, #fbe4d8, #b3d6f2, #e3a857);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
-      filter: brightness(1.05) contrast(1.05);
+      background-size: 600% 600%;
+      animation: gradientBG 8s ease infinite;
       color: #3a2e2b;
       line-height: 1.6;
     }
@@ -22,31 +21,9 @@
       100% { background-position: 0% 50%; }
     }
 
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(255,255,255,0.6);
-      text-align: center;
-      padding: 0.5rem 0;
-      z-index: 1000;
-      font-family: Courier, monospace;
-    }
-
-    nav a {
-      margin: 0 1rem;
-      color: #3a2e2b;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
     .container {
       max-width: 800px;
-      margin: 5rem auto 0 auto;
+      margin: 0 auto;
       padding: 3rem 1rem;
     }
 
@@ -55,6 +32,7 @@
       text-align: center;
       margin-bottom: 1rem;
       color: #4d3c34;
+      font-family: 'Courier New', Courier, monospace;
       animation: float 4s ease-in-out infinite;
     }
 
@@ -73,22 +51,35 @@
 
     p {
       margin-bottom: 1.2rem;
-      background: rgba(255, 255, 255, 0.7);
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
+    }
+
+    .audio-player, .streaming-links {
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    .links a {
+      color: #3a2e2b;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 1rem;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
     }
 
     .carousel-wrapper {
       max-width: 800px;
       margin: 2rem auto;
-      overflow: hidden;
-      border-radius: 12px;
+      position: relative;
     }
 
     .carousel-fade {
       position: relative;
       width: 100%;
       height: 450px;
+      overflow: hidden;
     }
 
     .carousel-image {
@@ -97,17 +88,14 @@
       height: 100%;
       object-fit: cover;
       opacity: 0;
-      transition: opacity 1s ease-in-out, transform 1s ease;
-      background-color: transparent;
+      transition: opacity 1s ease-in-out;
+      border-radius: 12px;
+      background-color: #f7f1eb;
     }
 
     .carousel-image.active {
       opacity: 1;
       z-index: 1;
-    }
-
-    .carousel-image.active:hover {
-      transform: scale(1.02);
     }
 
     .carousel-dots {
@@ -130,29 +118,28 @@
       background-color: #3a2e2b;
     }
 
-    .spotify-player, .audio-player {
-      background: #fbe4d8;
-      padding: 1rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      margin: 2rem 0;
-      text-align: center;
-    }
-
     footer {
       text-align: center;
       font-size: 0.9rem;
       margin-top: 4rem;
       color: #7b6e65;
     }
+
+    .highlight-text {
+      background: rgba(255, 255, 255, 0.7);
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+    }
+
+    .soundcloud-player iframe {
+      border-radius: 12px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="#spotify">Playlists</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
   <div class="container">
     <h1>MakesenSelection</h1>
     <h2>Paysagisme Musical</h2>
@@ -164,7 +151,7 @@
       </strong>
     </p>
 
-    <!-- Carrousel -->
+    <!-- Carrousel intégré -->
     <div class="carousel-wrapper">
       <div class="carousel-fade">
         <img src="images/radiodb.jpg" class="carousel-image active" alt="Ambiance 1">
@@ -183,37 +170,28 @@
         <span class="dot" onclick="showSlide(4)"></span>
         <span class="dot" onclick="showSlide(5)"></span>
         <span class="dot" onclick="showSlide(6)"></span>
+        <span class="dot" onclick="showSlide(7)"></span>
       </div>
     </div>
 
-    <p>Sélections éclectiques, sensibles et hors des sentiers battus : ambient, jazz, hard-lounge, soft rock, pop, soul & neo-soul, real hip-hop, disco, funk, house de New York, techno de Détroit, rythmes afro-brésiliens, raretés groove et pépites et tubes intemporels en tout genre.</p>
-    <p>Chaque set est une histoire, un voyage sonore qui respecte l’instant, sa temporalité, son énergie propre. Pas de Top 50 de la laideur commerciale contemporaine, mais des morceaux cultes, connus, reconnus, oubliés ou inconnus, sélectionnés pour leur qualité et leur puissance.</p>
-    <p>Entre classe et chaleur, entre danse et contemplation : une esthétique musicale pensée pour toucher corps et esprits, du vin d'honneur à l'after.</p>
-    <p>Avec près de 15 ans de vie à l'étranger dont 10 années à Berlin, la fibre multi-culturelle s'est développée et il me sera donc plus que naturel d'évoluer dans ce genre de contexte.</p>
-    <p>Mélomane depuis un jeune âge, dès 18 ans je passe mes premiers disques sur Radio Campus à Orléans, pour ensuite migrer vers mes premières expériences de bar dansant sur Annecy lors de mes études, dans un lieu mythique fermé depuis.</p>
-    <p>Bercé par la French Touch (Daft Punk, Cassius, etc...), les sirènes de "l'underground" berlinois retentirons fort, au point même d'en pousser quelques portes de clubs pour y jouer des disques. Radios, bars, clubs, festivals, pyjama parties, banquets, festivals, je m'adapte tout en gardant un fil rouge qualitatif et aventureux.</p>
-    <p style="text-align: center; font-weight: bold;">
-  Pour les mariages, immersion dans des zones de confort musical pour le plaisir de tous, puis dans des eaux plus profondes selon l'aura de la nuit ! Prestation musicale avec ou sans sonorisation / lumières. Option Bar à Vinyles disponible. Setup vinyle & digital. Basé dans le Lot (46), déplacements possibles.
-</p>
-
-
-    <!-- Spotify Players -->
-    <div id="spotify" class="spotify-player">
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6ITH5HUNub1lqZIKWbgsAe?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3E1uGxzCCx82fnSpC4tHtr?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/7k4cjrwCnBEoJROwyYsH6D?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/27gYwkVIHStN7zjRZwskJu?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <div class="highlight-text">
+      <p>Sélections éclectiques, sensibles et hors des sentiers battus : ambient, jazz, hard-lounge, soft rock, pop, soul & neo-soul, real hip-hop, disco, funk, house de New York, techno de Détroit, rythmes afro-brésiliens, raretés groove et pépites et tubes intemporels en tout genre.</p>
+      <p>Chaque set est une histoire, un voyage sonore qui respecte l’instant, sa temporalité, son énergie propre. Pas de Top 50 de la laideur commerciale contemporaine, mais des morceaux cultes, connus, reconnus, oubliés ou inconnus, sélectionnés pour leur qualité et leur puissance.</p>
+      <p>Entre classe et chaleur, entre danse et contemplation : une esthétique musicale pensée pour toucher corps et esprits, du vin d'honneur à l'after.</p>
+      <p>Avec près de 15 ans de vie à l'étranger dont 10 années à Berlin, la fibre multi-culturelle s'est développée et il me sera donc plus que naturel d'évoluer dans ce genre de contexte.</p>
+      <p>Mélomane depuis un jeune âge, dès 18 ans je passe mes premiers disques sur Radio Campus à Orléans, pour ensuite migrer vers mes premières expériences de bar dansant sur Annecy lors de mes études, dans un lieu mythique fermé depuis.</p>
+      <p>Bercé par la French Touch (Daft Punk, Cassius, etc...), les sirènes de "l'underground" berlinois retentirons fort, au point même d'en pousser quelques portes de clubs pour y jouer des disques. Radios, bars, clubs, festivals, pyjama parties, banquets, festivals, je m'adapte tout en gardant un fil rouge qualitatif et aventureux.</p>
+      <p>Pour les mariages, immersion dans des zones de confort musical pour le plaisir de tous, puis dans des eaux plus profondes selon l'aura de la nuit ! Prestation musicale avec ou sans sonorisation / lumières. Option Bar à Vinyles disponible. Setup vinyle & digital. Basé dans le Lot (46), déplacements possibles.</p>
     </div>
 
-    <!-- Soundcloud Player -->
-    <div class="audio-player">
-      <p><em>Écoutez un aperçu :</em></p>
+    <div class="audio-player soundcloud-player">
+      <p><em>Un aperçu de mes émissions de radio :</em></p>
       <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
         src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/m-a-x-e-n-c-e/sets/kir-shows&color=%23f7f1eb&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false">
       </iframe>
     </div>
 
-    <p id="contact" style="text-align: center; margin-top: 3rem;">Contact : Maxence - maxhansallein@protonmail.com / 07 55 61 45 67</p>
+    <p style="text-align: center; margin-top: 3rem;">Contact : Maxence - maxhansallein@protonmail.com  /  07 55 61 45 67</p>
   </div>
 
   <footer>
@@ -228,16 +206,4 @@
     function showSlide(index) {
       images[current].classList.remove('active');
       dots[current].classList.remove('active');
-      current = index;
-      images[current].classList.add('active');
-      dots[current].classList.add('active');
-    }
-
-    function nextSlide() {
-      showSlide((current + 1) % images.length);
-    }
-
-    setInterval(nextSlide, 5000);
-  </script>
-</body>
-</html>
+     
