@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+  <!DOCTYPE html>
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MakesenSelection - Musical Landscapes</title>
+  <title>MakesenSelection - Musical Landscaping</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Courier New', Courier, monospace;
+      font-family: Georgia, serif;
       background: linear-gradient(135deg, #fbe4d8, #b3d6f2, #e3a857);
       background-size: 600% 600%;
       animation: gradientBG 8s ease infinite;
@@ -16,41 +16,40 @@
     }
 
     @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
+      0%, 100% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
     }
 
-    .top-nav {
-      display: flex;
-      justify-content: flex-end;
-      gap: 1rem;
+    header {
+      background-color: rgba(58, 46, 43, 0.9);
+      color: white;
       padding: 1rem;
-      background-color: rgba(255, 255, 255, 0.3);
+      text-align: center;
       font-weight: bold;
-    }
-
-    .top-nav a {
-      text-decoration: none;
-      color: #3a2e2b;
-    }
-
-    .top-nav a:hover {
-      color: #e3a857;
     }
 
     .container {
       max-width: 800px;
       margin: 0 auto;
-      padding: 3rem 1rem;
+      padding: 2rem 1rem;
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 3.9rem;
       text-align: center;
-      margin-bottom: 1rem;
-      color: #4d3c34;
+      margin-top: -1rem;
+      margin-bottom: 0.2rem;
+      color: white;
       animation: float 4s ease-in-out infinite;
+      mix-blend-mode: lighten;
+    }
+
+    h2 {
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 2rem;
+      font-weight: normal;
+      color: #5a453b;
     }
 
     @keyframes float {
@@ -58,27 +57,26 @@
       50% { transform: translateY(-5px); }
     }
 
-    h2 {
-      text-align: center;
-      font-weight: normal;
-      margin-bottom: 3rem;
-      font-style: italic;
-      color: #5a453b;
+    .highlight-text {
+      background-color: rgba(255, 255, 255, 0.5);
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
     }
 
-    p {
-      margin-bottom: 1.2rem;
-    }
-
-    .audio-player, .streaming-links {
-      margin: 2rem 0;
+    .mariage-highlight {
       text-align: center;
+      font-weight: bold;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.4);
+      border-radius: 12px;
     }
 
     .carousel-wrapper {
-      max-width: 800px;
       margin: 2rem auto;
       position: relative;
+      max-width: 800px;
     }
 
     .carousel-fade {
@@ -96,7 +94,6 @@
       opacity: 0;
       transition: opacity 1s ease-in-out;
       border-radius: 12px;
-      background-color: #f7f1eb;
     }
 
     .carousel-image.active {
@@ -124,63 +121,102 @@
       background-color: #3a2e2b;
     }
 
+    iframe.spotify {
+      width: 100%;
+      height: 152px;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .spotify-player, .audio-player {
+      margin: 3rem 0;
+    }
+
+    /* Vinyl menu */
+    .vinyl-button {
+      position: fixed;
+      top: 50%;
+      right: 15%;
+      transform: translateY(-50%);
+      width: 70px;
+      height: 70px;
+      cursor: pointer;
+      animation: spin 8s linear infinite;
+      z-index: 999;
+    }
+
+    @keyframes spin {
+      from { transform: translateY(-50%) rotate(0deg); }
+      to { transform: translateY(-50%) rotate(360deg); }
+    }
+
+    .menu-popup {
+      position: fixed;
+      top: 50%;
+      right: 90px;
+      transform: translateY(-50%);
+      background-color: rgba(58, 46, 43, 0.9);
+      color: white;
+      padding: 1rem;
+      border-radius: 10px;
+      display: none;
+      flex-direction: column;
+      gap: 0.5rem;
+      z-index: 998;
+    }
+
+    .menu-popup a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .menu-popup a:hover {
+      text-decoration: underline;
+    }
+
     footer {
       text-align: center;
       font-size: 0.9rem;
-      margin-top: 4rem;
+      margin: 3rem 0 0;
       color: #7b6e65;
+    }
+
+    /* Bandeau de contact */
+    .footer-contact {
+      background-color: rgba(58, 46, 43, 0.9);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.1rem;
     }
   </style>
 </head>
 <body>
-  <nav class="top-nav">
-    <!-- Bouton de changement de langue -->
-    <a href="index.html">FR</a> <!-- Lien vers la version française -->
-    <a href="engversion.html">EN</a> <!-- Lien vers la version anglaise -->
-  </nav>
+
+  <header>
+    <!-- "MakesenSelection" retiré du bandeau du haut -->
+  </header>
+
   <div class="container">
-    <!-- Section for English Content -->
     <h1>MakesenSelection</h1>
-    <h2>Musical Landscapes</h2>
+    <h2>Musical Landscaping</h2>
 
-    <p style="text-align: center;">
-      <strong>
-        Eclectic, sensitive selections off the beaten track: ambient, jazz, hard-lounge, soft rock, pop, soul & neo-soul, real hip-hop, disco, funk, New York house, Detroit techno, Afro-Brazilian rhythms, groove rarities, timeless hits and gems of all kinds.
-      </strong>
+    <p style="text-align: center; margin-top: -1rem;">
+      <strong>Refined musical atmospheres for weddings,<br>
+banquets, private parties, and intimate events.</strong>
     </p>
 
-    <p>
-      Every set is a story, a sonic journey that respects the moment, its temporality, and its own energy.
-      No Top 50 of contemporary commercial ugliness, but iconic, known, recognized, forgotten, or unknown tracks, selected for their quality and power.
-      Between class and warmth, between dance and contemplation: a musical aesthetic designed to touch both body and mind, from the cocktail hour to the afterparty.
-    </p>
-
-    <p>
-      With nearly 15 years of life abroad, including 10 years in Berlin, my multicultural vibe has developed, and it will therefore feel completely natural to perform in such a context.
-    </p>
-
-    <p>
-      A music lover from a young age, I started spinning records at Radio Campus in Orléans when I was 18, then moved on to my first dancing bar experiences in Annecy during my studies, at a legendary spot that is now closed.
-    </p>
-
-    <p>
-      Raised by the French Touch (Daft Punk, Cassius, etc...), the sirens of Berlin's "underground" scene called strongly, even leading me to step into club doors to play records.
-      Radios, bars, clubs, festivals, pajama parties, banquets, I adapt while keeping a consistent and adventurous thread of quality.
-    </p>
-
-    <p><strong>For weddings, an immersion into musical comfort zones for everyone’s enjoyment, followed by deeper waters depending on the vibe of the night!</strong></p>
-    <p>Musical performance with or without sound/light setup. Vinyl Bar option available. Vinyl & digital setup. Based in Lot (46), travel possible.</p>
-
-    <!-- Carousel -->
+    <!-- Carrousel -->
     <div class="carousel-wrapper">
       <div class="carousel-fade">
-        <img src="images/radiodb.jpg" class="carousel-image active" alt="Ambiance 1">
-        <img src="images/tmwedding.jpg" class="carousel-image" alt="Ambiance 2">
-        <img src="images/cac21.jpg" class="carousel-image" alt="Ambiance 3">
-        <img src="images/KSB.jpg" class="carousel-image" alt="Ambiance 4">
-        <img src="images/pyjback.jpg" class="carousel-image" alt="Ambiance 5">
-        <img src="images/pyjfront.jpg" class="carousel-image" alt="Ambiance 6">
-        <img src="images/mandeldb.jpg" class="carousel-image" alt="Ambiance 7">
+        <img src="images/radiodb.jpg" class="carousel-image active">
+        <img src="images/tmwedding.jpg" class="carousel-image">
+        <img src="images/cac21.jpg" class="carousel-image">
+        <img src="images/KSB.jpg" class="carousel-image">
+        <img src="images/pyjback.jpg" class="carousel-image">
+        <img src="images/pyjfront.jpg" class="carousel-image">
+        <img src="images/mandeldb.jpg" class="carousel-image">
       </div>
       <div class="carousel-dots">
         <span class="dot active" onclick="showSlide(0)"></span>
@@ -193,32 +229,79 @@
       </div>
     </div>
 
-    <div class="audio-player">
-      <iframe src="https://open.spotify.com/embed/track/6Kq5eBStW7gwJUw8HiMmCm" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    <!-- Texte principal -->
+    <div id="apropos" class="highlight-text">
+      <p>Eclectic, sensitive, and off-the-beaten-path selections: ambient, jazz, hard-lounge, soft rock, pop, soul & neo-soul, real hip-hop, disco, funk, New York house, Detroit techno, Afro-Brazilian rhythms, groove rarities, timeless gems and anthems of all kinds.</p>
+      <p>Each set is a story — a sonic journey that honors the moment, its rhythm, its own unique energy. No Top 50 of today’s commercial ugliness here, but cult tracks, well-known classics, forgotten treasures or unknown wonders, all chosen for their quality and power.</p>
+      <p>A music lover from an early age, I started spinning records at 18 on Radio Campus in Orléans, before moving on to my first gigs in a dancing bar in Annecy during my studies — a legendary spot that has since closed down.</p>
+      <p>Cradled by the French Touch (Daft Punk, Cassius, etc...), I was soon lured by the sirens of Berlin's underground, eventually opening a few club doors to play records. From radios to bars, clubs, festivals, pajama parties, and banquets — I adapt, always guided by a sense of quality and adventure.</p>
+      <p>Between elegance and warmth, between dance and contemplation: a musical aesthetic crafted to move both body and soul — from the cocktail hour to the afterparty :)</p>
+      <p>With nearly 15 years living abroad, including 10 in Berlin, a multicultural sensibility naturally developed, making it easy for me to feel right at home in these kinds of settings.</p>
+
+
+    <div class="mariage-highlight">
+      <p>For weddings: starting with familiar musical comfort zones to please everyone, then diving into deeper waters as the night unfolds!</p>
+      <p>Musical performance with or without sound system / lighting.</p>
+      <p>Vinyl Bar option available.</p>
+      <p>Vinyl & digital setup.</p>
+      <p>Based in the Lot (46), available for travel :)</p>
+
     </div>
 
-    <p class="streaming-links">
-      Check out my playlists: 
-      <a href="https://www.mixcloud.com/tonsite/" target="_blank">Mixcloud</a> | 
-      <a href="https://open.spotify.com/playlist/TONPLAYLIST" target="_blank">Spotify</a>
-    </p>
+    <div class="spotify-player" id="univers">
+      <iframe class="spotify" src="https://open.spotify.com/embed/playlist/6ITH5HUNub1lqZIKWbgsAe?theme=0"></iframe>
+      <iframe class="spotify" src="https://open.spotify.com/embed/playlist/3E1uGxzCCx82fnSpC4tHtr?theme=0"></iframe>
+      <iframe class="spotify" src="https://open.spotify.com/embed/playlist/7k4cjrwCnBEoJROwyYsH6D?theme=0"></iframe>
+      <iframe class="spotify" src="https://open.spotify.com/embed/playlist/27gYwkVIHStN7zjRZwskJu?theme=0"></iframe>
+    </div>
 
-    <footer>
-      <p>© 2025 MakesenSelection. All rights reserved.</p>
-    </footer>
+    <div class="audio-player" id="soundcloud">
+      <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/m-a-x-e-n-c-e/sets/kir-shows&color=%23f7f1eb&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false">
+      </iframe>
+    </div>
   </div>
 
+  <!-- Bandeau de contact en bas -->
+  <div class="footer-contact" id="contact">
+    CONTACT :<br>Maxence<br>maxence.allain@free.fr<br>07 55 61 45 67
+  </div>
+
+  <!-- Vinyl menu -->
+  <img src="images/vinyl2.png" class="vinyl-button" onclick="toggleMenu()" alt="Menu vinyle" />
+  <div class="menu-popup" id="vinylMenu">
+    <a href="index.html">Français</a>
+    <a href="#apropos">About</a>
+    <a href="#univers">Music Spectrums</a>
+    <a href="https://soundcloud.com/m-a-x-e-n-c-e" target="_blank">Soundcloud</a>
+    <a href="https://open.spotify.com/user/mcsens?si=22f4cb872c104eee" target="_blank">Spotify</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <footer>&copy; 2025 – MakesenSelection - Musical Landscaping</footer>
+
   <script>
-    let currentSlide = 0;
+    let current = 0;
     const images = document.querySelectorAll('.carousel-image');
     const dots = document.querySelectorAll('.dot');
 
     function showSlide(index) {
-      images[currentSlide].classList.remove('active');
-      dots[currentSlide].classList.remove('active');
-      currentSlide = index;
-      images[currentSlide].classList.add('active');
-      dots[currentSlide].classList.add('active');
+      images[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = index;
+      images[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    function nextSlide() {
+      showSlide((current + 1) % images.length);
+    }
+
+    setInterval(nextSlide, 5000);
+
+    function toggleMenu() {
+      const menu = document.getElementById('vinylMenu');
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
     }
   </script>
 </body>
