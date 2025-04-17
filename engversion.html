@@ -1,1 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MakesenSelection - Musical Landscapes</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Courier New', Courier, monospace;
+      background: linear-gradient(135deg, #fbe4d8, #b3d6f2, #e3a857);
+      background-size: 600% 600%;
+      animation: gradientBG 8s ease infinite;
+      color: #3a2e2b;
+      line-height: 1.6;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .top-nav {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.3);
+      font-weight: bold;
+    }
+
+    .top-nav a {
+      text-decoration: none;
+      color: #3a2e2b;
+    }
+
+    .top-nav a:hover {
+      color: #e3a857;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 3rem 1rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #4d3c34;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    h2 {
+      text-align: center;
+      font-weight: normal;
+      margin-bottom: 3rem;
+      font-style: italic;
+      color: #5a453b;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+    }
+
+    .audio-player, .streaming-links {
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    .carousel-wrapper {
+      max-width: 800px;
+      margin: 2rem auto;
+      position: relative;
+    }
+
+    .carousel-fade {
+      position: relative;
+      width: 100%;
+      height: 450px;
+      overflow: hidden;
+    }
+
+    .carousel-image {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      border-radius: 12px;
+      background-color: #f7f1eb;
+    }
+
+    .carousel-image.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .carousel-dots {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .carousel-dots .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      background-color: #aaa;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .carousel-dots .dot.active {
+      background-color: #3a2e2b;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 4rem;
+      color: #7b6e65;
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+    <a href="index.html">FR</a>
+    <a href="en.html">EN</a>
+  </nav>
+  <div class="container">
+    <!-- Section for English Content -->
+    <h1>MakesenSelection</h1>
+    <h2>Musical Landscapes</h2>
+
+    <p style="text-align: center;">
+      <strong>
+        Eclectic, sensitive selections off the beaten track: ambient, jazz, hard-lounge, soft rock, pop, soul & neo-soul, real hip-hop, disco, funk, New York house, Detroit techno, Afro-Brazilian rhythms, groove rarities, timeless hits and gems of all kinds.
+      </strong>
+    </p>
+
+    <p>
+      Every set is a story, a sonic journey that respects the moment, its temporality, and its own energy.
+      No Top 50 of contemporary commercial ugliness, but iconic, known, recognized, forgotten, or unknown tracks, selected for their quality and power.
+      Between class and warmth, between dance and contemplation: a musical aesthetic designed to touch both body and mind, from the cocktail hour to the afterparty.
+    </p>
+
+    <p>
+      With nearly 15 years of life abroad, including 10 years in Berlin, my multicultural vibe has developed, and it will therefore feel completely natural to perform in such a context.
+    </p>
+
+    <p>
+      A music lover from a young age, I started spinning records at Radio Campus in Orléans when I was 18, then moved on to my first dancing bar experiences in Annecy during my studies, at a legendary spot that is now closed.
+    </p>
+
+    <p>
+      Raised by the French Touch (Daft Punk, Cassius, etc...), the sirens of Berlin's "underground" scene called strongly, even leading me to step into club doors to play records.
+      Radios, bars, clubs, festivals, pajama parties, banquets, I adapt while keeping a consistent and adventurous thread of quality.
+    </p>
+
+    <p><strong>For weddings, an immersion into musical comfort zones for everyone’s enjoyment, followed by deeper waters depending on the vibe of the night!</strong></p>
+    <p>Musical performance with or without sound/light setup. Vinyl Bar option available. Vinyl & digital setup. Based in Lot (46), travel possible.</p>
+
+    <!-- Carousel -->
+    <div class="carousel-wrapper">
+      <div class="carousel-fade">
+        <img src="images/radiodb.jpg" class="carousel-image active" alt="Ambiance 1">
+        <img src="images/tmwedding.jpg" class="carousel-image" alt="Ambiance 2">
+        <img src="images/cac21.jpg" class="carousel-image" alt="Ambiance 3">
+        <img src="images/KSB.jpg" class="carousel-image" alt="Ambiance 4">
+        <img src="images/pyjback.jpg" class="carousel-image" alt="Ambiance 5">
+        <img src="images/pyjfront.jpg" class="carousel-image" alt="Ambiance 6">
+        <img src="images/mandeldb.jpg" class="carousel-image" alt="Ambiance 7">
+      </div>
+      <div class="carousel-dots">
+        <span class="dot active" onclick="showSlide(0)"></span>
+        <span class="dot" onclick="showSlide(1)"></span>
+        <span class="dot" onclick="showSlide(2)"></span>
+        <span class="dot" onclick="showSlide(3)"></span>
+        <span class="dot" onclick="showSlide(4)"></span>
+        <span class="dot" onclick="showSlide(5)"></span>
+        <span class="dot" onclick="showSlide(6)"></span>
+      </div>
+    </div>
+
+    <div class="audio-player">
+      <iframe src="https://open.spotify.com/embed/track/6Kq5eBStW7gwJUw8HiMmCm" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div>
+
+    <p class="streaming-links">
+      Check out my playlists: 
+      <a href="https://www.mixcloud.com/tonsite/" target="_blank">Mixcloud</a> | 
+      <a href="https://open.spotify.com/playlist/TONPLAYLIST" target="_blank">Spotify</a>
+    </p>
+
+    <footer>
+      <p>© 2025 MakesenSelection. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const images = document.querySelectorAll('.carousel-image');
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlide(index) {
+      images[currentSlide].classList.remove('active');
+      dots[currentSlide].classList.remove('active');
+      currentSlide = index;
+      images[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
+    }
+  </script>
+</body>
+</html>
 
