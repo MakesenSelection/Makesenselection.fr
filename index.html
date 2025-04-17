@@ -16,14 +16,16 @@
     }
 
     @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
+      0%, 100% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
     }
 
-    header {
-      height: 50px;
+    header, .footer-contact {
       background-color: rgba(58, 46, 43, 0.9);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-weight: bold;
     }
 
     .container {
@@ -33,24 +35,21 @@
     }
 
     h1 {
-      font-size: 4rem;
+      font-size: 3.2rem;
       text-align: center;
-      margin: -2rem 0 0.5rem 0;
-      color: #4d3c34;
-      position: relative;
+      margin-top: -1rem;
+      margin-bottom: 0.2rem;
+      color: white;
       animation: float 4s ease-in-out infinite;
+      mix-blend-mode: lighten;
     }
 
-    h1::after {
-      content: "MakesenSelection";
-      position: absolute;
-      top: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: white;
-      z-index: -1;
-      opacity: 0.7;
-      font-size: 4rem;
+    h2 {
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 2rem;
+      font-weight: normal;
+      color: #5a453b;
     }
 
     @keyframes float {
@@ -58,38 +57,26 @@
       50% { transform: translateY(-5px); }
     }
 
-    h2 {
-      text-align: center;
-      font-weight: normal;
-      margin-bottom: 2rem;
-      font-style: italic;
-      color: #5a453b;
-    }
-
-    p {
-      margin-bottom: 1.2rem;
-    }
-
     .highlight-text {
-      background-color: rgba(255, 255, 255, 0.3);
-      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.5);
+      padding: 1.5rem;
       border-radius: 10px;
+      margin-bottom: 2rem;
     }
 
     .mariage-highlight {
       text-align: center;
       font-weight: bold;
-      margin: 3rem auto;
-      max-width: 700px;
+      margin: 2rem auto;
       padding: 1rem;
-      background-color: rgba(255, 255, 255, 0.2);
+      background-color: rgba(255, 255, 255, 0.4);
       border-radius: 12px;
     }
 
     .carousel-wrapper {
-      max-width: 800px;
-      margin: 1rem auto;
+      margin: 2rem auto;
       position: relative;
+      max-width: 800px;
     }
 
     .carousel-fade {
@@ -134,101 +121,93 @@
       background-color: #3a2e2b;
     }
 
-    .spotify-player {
-      text-align: center;
+    iframe.spotify {
+      width: 100%;
+      height: 152px;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .spotify-player, .audio-player {
       margin: 3rem 0;
     }
 
-    iframe.spotify {
-      border-radius: 12px;
-      width: 100%;
-      height: 152px;
-      margin-bottom: 1.5rem;
-    }
-
-    .audio-player {
-      text-align: center;
-      margin: 2rem 0;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 1rem;
-      margin-top: 4rem;
-      font-weight: bold;
-      color: #3a2e2b;
-    }
-
-    /* Vinyle flottant */
-    #vinyl-button {
+    /* Vinyl menu */
+    .vinyl-button {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
+      top: 50%;
+      right: 3%;
+      transform: translateY(-50%);
       width: 70px;
       height: 70px;
-      z-index: 1000;
-      cursor: grab;
-    }
-
-    #vinyl-button img {
-      width: 100%;
-      height: 100%;
-      animation: spin 4s linear infinite;
+      cursor: pointer;
+      animation: spin 8s linear infinite;
+      z-index: 999;
     }
 
     @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+      from { transform: translateY(-50%) rotate(0deg); }
+      to { transform: translateY(-50%) rotate(360deg); }
     }
 
-    #menu-popup {
+    .menu-popup {
       position: fixed;
-      bottom: 100px;
-      right: 20px;
-      background-color: rgba(255,255,255,0.95);
-      border: 1px solid #ccc;
-      border-radius: 8px;
+      top: 50%;
+      right: 90px;
+      transform: translateY(-50%);
+      background-color: rgba(58, 46, 43, 0.9);
+      color: white;
       padding: 1rem;
+      border-radius: 10px;
       display: none;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      z-index: 1001;
+      flex-direction: column;
+      gap: 0.5rem;
+      z-index: 998;
     }
 
-    #menu-popup a {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: #3a2e2b;
+    .menu-popup a {
+      color: white;
       text-decoration: none;
       font-weight: bold;
     }
 
-    #menu-popup a:hover {
+    .menu-popup a:hover {
       text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      margin: 3rem 0 0;
+      color: #7b6e65;
     }
   </style>
 </head>
 <body>
-  <header></header>
+
+  <header>
+    MakesenSelection
+  </header>
 
   <div class="container">
     <h1>MakesenSelection</h1>
     <h2>Paysagisme Musical</h2>
 
-    <p style="text-align: center;">
-      <strong>Ambiances musicales raffinées pour mariages,<br> 
+    <p style="text-align: center; margin-top: -1rem;">
+      <strong>Ambiances musicales raffinées pour mariages,<br>
       banquets, fêtes privées et évènements intimistes.</strong>
     </p>
 
     <!-- Carrousel -->
     <div class="carousel-wrapper">
       <div class="carousel-fade">
-        <img src="images/radiodb.jpg" class="carousel-image active" alt="Ambiance 1">
-        <img src="images/tmwedding.jpg" class="carousel-image" alt="Ambiance 2">
-        <img src="images/cac21.jpg" class="carousel-image" alt="Ambiance 3">
-        <img src="images/KSB.jpg" class="carousel-image" alt="Ambiance 4">
-        <img src="images/pyjback.jpg" class="carousel-image" alt="Ambiance 5">
-        <img src="images/pyjfront.jpg" class="carousel-image" alt="Ambiance 6">
-        <img src="images/mandeldb.jpg" class="carousel-image" alt="Ambiance 7">
+        <img src="images/radiodb.jpg" class="carousel-image active">
+        <img src="images/tmwedding.jpg" class="carousel-image">
+        <img src="images/cac21.jpg" class="carousel-image">
+        <img src="images/KSB.jpg" class="carousel-image">
+        <img src="images/pyjback.jpg" class="carousel-image">
+        <img src="images/pyjfront.jpg" class="carousel-image">
+        <img src="images/mandeldb.jpg" class="carousel-image">
       </div>
       <div class="carousel-dots">
         <span class="dot active" onclick="showSlide(0)"></span>
@@ -242,7 +221,7 @@
     </div>
 
     <!-- Texte principal -->
-    <div class="highlight-text">
+    <div id="apropos" class="highlight-text">
       <p>Sélections éclectiques, sensibles et hors des sentiers battus : ambient, jazz, hard-lounge, soft rock, pop, soul & neo-soul, real hip-hop, disco, funk, house de New York, techno de Détroit, rythmes afro-brésiliens, raretés groove, pépites et tubes intemporels en tout genre.</p>
       <p>Chaque set est une histoire, un voyage sonore qui respecte l’instant, sa temporalité, son énergie propre. Pas de Top 50 de la laideur commerciale contemporaine, mais des morceaux cultes, connus, reconnus, oubliés ou inconnus, sélectionnés pour leur qualité et leur puissance.</p>
       <p>Mélomane depuis un jeune âge, dès 18 ans je passe mes premiers disques sur Radio Campus à Orléans, pour ensuite migrer vers mes premières expériences de bar dansant sur Annecy lors de mes études, dans un lieu mythique fermé depuis.</p>
@@ -251,74 +230,43 @@
       <p>Avec près de 15 ans de vie à l'étranger dont 10 années à Berlin, la fibre multi-culturelle s'est développée et il me sera donc plus que naturel d'évoluer dans ce genre de contexte.</p>
     </div>
 
-    <!-- Mariages -->
     <div class="mariage-highlight">
       Pour les mariages, immersion dans des zones de confort musical pour le plaisir de tous, puis dans des eaux plus profondes selon l'aura de la nuit ! Prestation musicale avec ou sans sonorisation / lumières. Option Bar à Vinyles disponible. Setup vinyle & digital. Basé dans le Lot (46), déplacements possibles.
     </div>
 
-    <!-- Spotify -->
-    <div class="spotify-player" id="playlists">
-      <iframe class="spotify" src="https://open.spotify.com/embed/playlist/6ITH5HUNub1lqZIKWbgsAe?utm_source=generator&theme=0"></iframe>
-      <iframe class="spotify" src="https://open.spotify.com/embed/playlist/3E1uGxzCCx82fnSpC4tHtr?utm_source=generator&theme=0"></iframe>
-      <iframe class="spotify" src="https://open.spotify.com/embed/playlist/7k4cjrwCnBEoJROwyYsH6D?utm_source=generator&theme=0"></iframe>
-      <iframe class="spotify" src="https://open.spotify.com/embed/playlist/27gYwkVIHStN7zjRZwskJu?utm_source=generator&theme=0"></iframe>
+    <div class="spotify-player" id="univers">
+      <iframe class="spotify" src="https://open.spotify.com/embed/playlist/6ITH5HUNub1lqZIKWbgsAe?theme=0"></iframe>
+      <iframe class="spotify" src="https://open.spotify.com/embed/playlist/3E1uGxzCCx82fnSpC4tHtr?theme=0"></iframe>
+      <iframe class="spotify" src="https://open.spotify.com/embed/playlist/7k4cjrwCnBEoJROwyYsH6D?theme=0"></iframe>
+      <iframe class="spotify" src="https://open.spotify.com/embed/playlist/27gYwkVIHStN7zjRZwskJu?theme=0"></iframe>
     </div>
 
-    <!-- SoundCloud -->
-    <div class="audio-player">
+    <div class="audio-player" id="soundcloud">
       <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
         src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/m-a-x-e-n-c-e/sets/kir-shows&color=%23f7f1eb&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false">
       </iframe>
     </div>
-
-    <!-- Contact -->
-    <p id="contact" style="text-align: center; font-weight: bold; font-size: 1.3rem; margin-top: 3rem;">
-      Contact : Maxence – maxhansallein@protonmail.com / 07 55 61 45 67
-    </p>
   </div>
 
-  <footer>
-    &copy; 2025 – MakesenSelection - Paysagisme Musical
-  </footer>
-
-  <!-- Vinyle Bouton -->
-  <div id="vinyl-button" draggable="true">
-    <img src="images/vinyl2.png" alt="Menu Vinyle" />
+  <!-- Bandeau de contact en bas -->
+  <div class="footer-contact" id="contact">
+    Contact :<br>Maxence<br>maxence.allain@free.fr<br>07 55 61 45 67
   </div>
 
-  <div id="menu-popup">
+  <!-- Vinyl menu -->
+  <img src="images/vinyl2.png" class="vinyl-button" onclick="toggleMenu()" alt="Menu vinyle" />
+  <div class="menu-popup" id="vinylMenu">
     <a href="versioneng.html">English</a>
-    <a href="#about">À propos</a>
-    <a href="#playlists">Univers musicaux</a>
-    <a href="https://soundcloud.com/m-a-x-e-n-c-e" target="_blank">SoundCloud</a>
+    <a href="#apropos">À propos</a>
+    <a href="#univers">Univers musicaux</a>
+    <a href="https://soundcloud.com/m-a-x-e-n-c-e" target="_blank">Soundcloud</a>
     <a href="https://open.spotify.com/user/mcsens?si=22f4cb872c104eee" target="_blank">Spotify</a>
+    <a href="#contact">Contact</a>
   </div>
+
+  <footer>&copy; 2025 – MakesenSelection - Paysagisme Musical</footer>
 
   <script>
-    const vinylButton = document.getElementById('vinyl-button');
-    const menuPopup = document.getElementById('menu-popup');
-
-    vinylButton.addEventListener('click', () => {
-      menuPopup.style.display = menuPopup.style.display === 'block' ? 'none' : 'block';
-    });
-
-    let offsetX, offsetY;
-
-    vinylButton.addEventListener('mousedown', (e) => {
-      offsetX = e.clientX - vinylButton.offsetLeft;
-      offsetY = e.clientY - vinylButton.offsetTop;
-      document.addEventListener('mousemove', moveVinyl);
-      document.addEventListener('mouseup', () => {
-        document.removeEventListener('mousemove', moveVinyl);
-      }, { once: true });
-    });
-
-    function moveVinyl(e) {
-      vinylButton.style.left = `${e.clientX - offsetX}px`;
-      vinylButton.style.top = `${e.clientY - offsetY}px`;
-    }
-
-    // Carrousel
     let current = 0;
     const images = document.querySelectorAll('.carousel-image');
     const dots = document.querySelectorAll('.dot');
@@ -336,6 +284,11 @@
     }
 
     setInterval(nextSlide, 5000);
+
+    function toggleMenu() {
+      const menu = document.getElementById('vinylMenu');
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    }
   </script>
 </body>
 </html>
