@@ -304,5 +304,48 @@ banquets, private parties, and intimate events.</strong>
       menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
     }
   </script>
+    </script>
+<audio id="bg-audio">
+  <source src="phono1.wav" type="audio/wav">
+  Your browser does not support the audio element.
+</audio>
+
+
+<script>
+  let current = 0;
+  const images = document.querySelectorAll('.carousel-image');
+  const dots = document.querySelectorAll('.dot');
+
+  function showSlide(index) {
+    images[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = index;
+    images[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  function nextSlide() {
+    showSlide((current + 1) % images.length);
+  }
+
+  setInterval(nextSlide, 5000);
+
+  // ---- FOND SONORE ----
+  const audio = document.getElementById('bg-audio');
+  let audioStarted = false;
+
+  function toggleMenu() {
+    const menu = document.getElementById('vinylMenu');
+    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+
+    // Lancer la musique si elle n’a pas encore commencé
+    if (!audioStarted) {
+      audio.volume = 0.3; // volume réduit pour ambiance discrète
+      audio.play().catch(e => console.log("Autoplay failed:", e));
+      audioStarted = true;
+    }
+    
+</script>
+    
 </body>
 </html>
