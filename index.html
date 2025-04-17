@@ -326,11 +326,18 @@
     menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
 
     // Lancer la musique si elle n’a pas encore commencé
-    if (!audioStarted) {
-      audio.play().catch(e => console.log("Autoplay failed:", e));
-      audioStarted = true;
-    
-  }
+if (!audioStarted) {
+  audio.volume = 0.2; // volume réduit pour ambiance discrète
+  audio.play()
+    .then(() => {
+      // On attend que la lecture se termine
+      audio.onended = () => {
+        audioStarted = true; // On ne rejoue pas
+      };
+    })
+    .catch(e => console.log("Autoplay failed:", e));
+}
+
 </script>
 <audio id="bg-audio">
   <source src="phono1.wav" type="audio/wav">
@@ -364,13 +371,6 @@
   function toggleMenu() {
     const menu = document.getElementById('vinylMenu');
     menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-
-    // Lancer la musique si elle n’a pas encore commencé
-    if (!audioStarted) {
-      audio.volume = 0.3; // volume réduit pour ambiance discrète
-      audio.play().catch(e => console.log("Autoplay failed:", e));
-      audioStarted = true;
-    }
   }
 </script>
 
