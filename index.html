@@ -20,7 +20,11 @@
       margin: 0;
       font-family: Georgia, serif;
       
-background: linear-gradient(135deg, #f5e4c3, #e7c79a, #f3d6b3, #fbe4d8, #eed8c1);
+
+background: linear-gradient(135deg, #f5e4c3, #fbe4d8, #e6d5c2, #f0dbc1, #e3bfa5, #faead1, #f5e4c3);
+background-size: 1000% 1000%;
+animation: gradientBG 30s ease infinite;
+
 background-size: 600% 600%;
 animation: gradientBG 16s ease infinite;
 
@@ -49,15 +53,18 @@ animation: gradientBG 16s ease infinite;
       padding: 2rem 1rem;
     }
 
-    h1 {
-      font-size: 3.9rem;
-      text-align: center;
-      margin-top: -1rem;
-      margin-bottom: 0.2rem;
-      color: white;
-      animation: float 4s ease-in-out infinite;
-      mix-blend-mode: lighten;
-    }
+    
+h1 {
+  font-size: 4rem;
+  text-align: center;
+  margin-top: -1rem;
+  margin-bottom: 0.2rem;
+  background: linear-gradient(90deg, #5a453b, #7d5f48, #3a2e2b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: float 4s ease-in-out infinite;
+}
+
 
     h2 {
       text-align: center;
