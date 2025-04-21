@@ -212,6 +212,44 @@ h1 {
       padding: 1rem;
       font-size: 1.1rem;
     }
+    /* --- Titre principal stylisé --- */
+h1 {
+  font-size: 4rem;
+  text-align: center;
+  margin-top: -1rem;
+  margin-bottom: 0.2rem;
+  background: linear-gradient(270deg, #5a453b, #7d5f48, #3a2e2b, #7d5f48);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: float 4s ease-in-out infinite, waveText 10s ease infinite;
+}
+
+@keyframes waveText {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* --- Sous-titre stylisé --- */
+h2 {
+  text-align: center;
+  font-style: italic;
+  font-weight: normal;
+  margin-bottom: 2.5rem;
+  font-size: 1.5rem;
+  color: #5a453b;
+  letter-spacing: 0.1rem;
+  opacity: 0.9;
+}
+
+/* --- Fond animé plus rapide et doux --- */
+body {
+  background: linear-gradient(135deg, #f5e4c3, #fbe4d8, #e6d5c2, #f0dbc1, #e3bfa5, #faead1, #f5e4c3);
+  background-size: 1000% 1000%;
+  animation: gradientBG 20s ease infinite;
+}
+
   </style>
 </head>
   <audio id="bg-audio" loop>
