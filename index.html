@@ -40,8 +40,6 @@
       text-align: center;
       margin-top: -1rem;
       margin-bottom: 0.2rem;
-      max-width: 100%;
-      overflow-wrap: break-word;
       background: linear-gradient(270deg, #5a453b, #7d5f48, #3a2e2b, #7d5f48);
       background-size: 400% 400%;
       -webkit-background-clip: text;
@@ -69,17 +67,26 @@
       100% { background-position: 0% 50%; }
     }
 
+    .highlight-text {
+      background-color: rgba(255, 255, 255, 0.5);
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+    }
+
     .carousel-wrapper {
       max-width: 800px;
       margin: 2rem auto;
       position: relative;
     }
+
     .carousel-fade {
       position: relative;
       width: 100%;
       height: 450px;
       overflow: hidden;
     }
+
     .carousel-image {
       position: absolute;
       width: 100%;
@@ -89,14 +96,17 @@
       transition: opacity 1s ease-in-out;
       border-radius: 12px;
     }
+
     .carousel-image.active {
       opacity: 1;
       z-index: 1;
     }
+
     .carousel-dots {
       text-align: center;
       margin-top: 1rem;
     }
+
     .carousel-dots .dot {
       height: 12px;
       width: 12px;
@@ -107,40 +117,9 @@
       transition: background-color 0.3s ease;
       cursor: pointer;
     }
+
     .carousel-dots .dot.active {
       background-color: #3a2e2b;
-    }
-
-    .highlight-text {
-      background-color: rgba(255, 255, 255, 0.5);
-      padding: 1.5rem;
-      border-radius: 10px;
-      margin-bottom: 2rem;
-    }
-
-    .mariage-highlight {
-      text-align: center;
-      font-weight: bold;
-      margin: 2rem auto;
-      padding: 1rem;
-      background-color: rgba(255, 255, 255, 0.4);
-      border-radius: 12px;
-    }
-
-    .spotify-player iframe, .audio-player iframe {
-      width: 100%;
-      border-radius: 12px;
-      margin: 1rem 0;
-    }
-
-    .footer-contact {
-      background-color: rgba(58, 46, 43, 0.9);
-      color: white;
-      text-align: center;
-      padding: 2rem;
-      margin-top: 4rem;
-      font-size: 1rem;
-      font-weight: bold;
     }
 
     .vinyl-button {
@@ -154,6 +133,7 @@
       animation: spin 8s linear infinite;
       z-index: 999;
     }
+
     @keyframes spin {
       from { transform: translateY(-50%) rotate(0deg); }
       to { transform: translateY(-50%) rotate(360deg); }
@@ -173,18 +153,31 @@
       gap: 0.5rem;
       z-index: 998;
     }
+
     .menu-popup a {
       color: white;
       text-decoration: none;
       font-weight: bold;
     }
+
     .menu-popup a:hover {
       text-decoration: underline;
+    }
+
+    .footer-contact {
+      background-color: rgba(58, 46, 43, 0.9);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+      font-size: 1rem;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
   <header></header>
+
   <div class="container">
     <h1>MakesenSelection</h1>
     <h2>P a y s a g i s m e &nbsp; M u s i c a l</h2>
@@ -192,57 +185,75 @@
       <strong>Ambiances musicales raffinées pour mariages,<br>banquets, fêtes privées et évènements intimistes.</strong>
     </p>
 
-    <!-- Carrousel et texte inchangé pour la suite... -->
-
-    <!-- Vinyl Menu -->
-    <img src="images/vinyl2.png" class="vinyl-button" onclick="toggleMenu()" alt="Menu vinyle" />
-    <div class="menu-popup" id="vinylMenu">
-      <a href="versioneng.html">English</a>
-      <a href="#apropos">À propos</a>
-      <a href="#univers">Univers musicaux</a>
-      <a href="https://soundcloud.com/m-a-x-e-n-c-e" target="_blank">Soundcloud</a>
-      <a href="https://open.spotify.com/user/mcsens?si=22f4cb872c104eee" target="_blank">Spotify</a>
-      <a href="#contact">Contact</a>
+    <!-- Carrousel -->
+    <div class="carousel-wrapper">
+      <div class="carousel-fade">
+        <img src="images/radiodb.jpg" class="carousel-image active">
+        <img src="images/tmwedding.jpg" class="carousel-image">
+        <img src="images/cac21.jpg" class="carousel-image">
+        <img src="images/KSB.jpg" class="carousel-image">
+        <img src="images/pyjback.jpg" class="carousel-image">
+        <img src="images/pyjfront.jpg" class="carousel-image">
+        <img src="images/mandeldb.jpg" class="carousel-image">
+      </div>
+      <div class="carousel-dots">
+        <span class="dot active" onclick="showSlide(0)"></span>
+        <span class="dot" onclick="showSlide(1)"></span>
+        <span class="dot" onclick="showSlide(2)"></span>
+        <span class="dot" onclick="showSlide(3)"></span>
+        <span class="dot" onclick="showSlide(4)"></span>
+        <span class="dot" onclick="showSlide(5)"></span>
+        <span class="dot" onclick="showSlide(6)"></span>
+      </div>
     </div>
 
-    <!-- Audio element for sound on click -->
-    <audio id="bg-audio">
-      <source src="phono1.wav" type="audio/wav">
-      Your browser does not support the audio element.
-    </audio>
+    <!-- Texte principal -->
+    <div id="apropos" class="highlight-text">
+      <p>Sélections éclectiques, sensibles et hors des sentiers battus : ambient, jazz, hard-lounge, soft rock, pop, soul & neo-soul, real hip-hop, disco, funk, house de New York, techno de Détroit, rythmes afro-brésiliens, raretés groove, pépites et tubes intemporels en tout genre.</p>
+      <p>Chaque set est une histoire, un voyage sonore qui respecte l’instant, sa temporalité, son énergie propre. Pas de Top 50 de la laideur commerciale contemporaine, mais des morceaux cultes, connus, reconnus, oubliés ou inconnus, sélectionnés pour leur qualité et leur puissance.</p>
+      <p>Mélomane depuis un jeune âge, dès 18 ans je passe mes premiers disques sur Radio Campus à Orléans, pour ensuite migrer vers mes premières expériences de bar dansant sur Annecy lors de mes études, dans un lieu mythique fermé depuis.</p>
+      <p>Bercé par la French Touch (Daft Punk, Cassius, etc...), les sirènes de "l'underground" berlinois retentiront fort, au point d'en pousser quelques portes de clubs pour y jouer des disques. Radios, bars, clubs, festivals, pyjama parties, banquets, je m'adapte tout en gardant un fil rouge qualitatif et aventureux.</p>
+      <p>Entre classe et chaleur, entre danse et contemplation : une esthétique musicale pensée pour toucher corps et esprits, du vin d'honneur à l'after :)</p>
+      <p>Avec près de 15 ans de vie à l'étranger dont 10 années à Berlin, une fibre multi-culturelle s'est développée et il me sera donc plus que naturel d'évoluer dans ce genre de contexte.</p>
+    </div>
+
+    <div class="mariage-highlight">
+      Pour les mariages, immersion dans des zones de confort ou d’inconfort, des mélodies apaisantes ou des rythmes plus festifs… Je me fais le plaisir d’accompagner vos invités tout au long de cet événement magique.
+    </div>
   </div>
 
-  <div class="footer-contact" id="contact">
-    CONTACT :<br>Maxence<br>maxence.allain@free.fr<br>07 55 61 45 67
+  <!-- Menu vinyle -->
+  <div class="vinyl-button" onclick="toggleMenu()">
+    <img src="vinyl2.png" alt="Vinyle Menu" />
+  </div>
+
+  <div class="menu-popup">
+    <a href="#apropos">À propos</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <div class="footer-contact">
+    <p>Contactez-moi : email@example.com</p>
   </div>
 
   <script>
-    let current = 0;
+    // Carrousel functionality
+    let currentSlide = 0;
     const images = document.querySelectorAll('.carousel-image');
     const dots = document.querySelectorAll('.dot');
-    const audio = document.getElementById('bg-audio');
-    let audioStarted = false;
 
     function showSlide(index) {
-      images[current].classList.remove('active');
-      dots[current].classList.remove('active');
-      current = index;
-      images[current].classList.add('active');
-      dots[current].classList.add('active');
+      images[currentSlide].classList.remove('active');
+      dots[currentSlide].classList.remove('active');
+      currentSlide = index;
+      images[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
     }
-    function nextSlide() {
-      showSlide((current + 1) % images.length);
-    }
-    setInterval(nextSlide, 5000);
 
+    // Toggle the vinyl menu
     function toggleMenu() {
-      const menu = document.getElementById('vinylMenu');
+      const menu = document.querySelector('.menu-popup');
       menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-      if (!audioStarted) {
-        audio.volume = 0.3;
-        audio.play().catch(e => console.log("Autoplay failed:", e));
-        audioStarted = true;
-      }
     }
   </script>
 </body>
