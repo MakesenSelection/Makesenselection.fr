@@ -5,6 +5,257 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MakesenSelection - Paysagisme Musical</title>
   <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: linear-gradient(-45deg, #fbe4d8, #f2c6b5, #e6d5c2, #d6e4e5, #faead1, #f7d7ba, #eed8c1);
+      background-size: 1600% 1600%;
+      animation: gradientBG 15s ease infinite;
+      color: #3a2e2b;
+      line-height: 1.6;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      background-color: rgba(58, 46, 43, 0.9);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      text-align: center;
+      margin-top: -1rem;
+      margin-bottom: 0.2rem;
+      max-width: 100%;
+      overflow-wrap: break-word;
+      background: linear-gradient(270deg, #5a453b, #7d5f48, #3a2e2b, #7d5f48);
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: float 4s ease-in-out infinite, waveText 10s ease infinite;
+    }
+
+    h2 {
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 2rem;
+      font-weight: normal;
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      color: #5a453b;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    @keyframes waveText {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .carousel-wrapper {
+      max-width: 800px;
+      margin: 2rem auto;
+      position: relative;
+    }
+    .carousel-fade {
+      position: relative;
+      width: 100%;
+      height: 450px;
+      overflow: hidden;
+    }
+    .carousel-image {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      border-radius: 12px;
+    }
+    .carousel-image.active {
+      opacity: 1;
+      z-index: 1;
+    }
+    .carousel-dots {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .carousel-dots .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      background-color: #aaa;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+    .carousel-dots .dot.active {
+      background-color: #3a2e2b;
+    }
+
+    .highlight-text {
+      background-color: rgba(255, 255, 255, 0.5);
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+    }
+
+    .mariage-highlight {
+      text-align: center;
+      font-weight: bold;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.4);
+      border-radius: 12px;
+    }
+
+    .spotify-player iframe, .audio-player iframe {
+      width: 100%;
+      border-radius: 12px;
+      margin: 1rem 0;
+    }
+
+    .footer-contact {
+      background-color: rgba(58, 46, 43, 0.9);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .vinyl-button {
+      position: fixed;
+      top: 50%;
+      right: 30px;
+      transform: translateY(-50%);
+      width: 70px;
+      height: 70px;
+      cursor: pointer;
+      animation: spin 8s linear infinite;
+      z-index: 999;
+    }
+    @keyframes spin {
+      from { transform: translateY(-50%) rotate(0deg); }
+      to { transform: translateY(-50%) rotate(360deg); }
+    }
+
+    .menu-popup {
+      position: fixed;
+      top: 50%;
+      right: 110px;
+      transform: translateY(-50%);
+      background-color: rgba(58, 46, 43, 0.95);
+      color: white;
+      padding: 1rem;
+      border-radius: 10px;
+      display: none;
+      flex-direction: column;
+      gap: 0.5rem;
+      z-index: 998;
+    }
+    .menu-popup a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .menu-popup a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header></header>
+  <div class="container">
+    <h1>MakesenSelection</h1>
+    <h2>P a y s a g i s m e &nbsp; M u s i c a l</h2>
+    <p style="text-align: center;">
+      <strong>Ambiances musicales raffinées pour mariages,<br>banquets, fêtes privées et évènements intimistes.</strong>
+    </p>
+
+    <!-- Carrousel et texte inchangé pour la suite... -->
+
+    <!-- Vinyl Menu -->
+    <img src="images/vinyl2.png" class="vinyl-button" onclick="toggleMenu()" alt="Menu vinyle" />
+    <div class="menu-popup" id="vinylMenu">
+      <a href="versioneng.html">English</a>
+      <a href="#apropos">À propos</a>
+      <a href="#univers">Univers musicaux</a>
+      <a href="https://soundcloud.com/m-a-x-e-n-c-e" target="_blank">Soundcloud</a>
+      <a href="https://open.spotify.com/user/mcsens?si=22f4cb872c104eee" target="_blank">Spotify</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Audio element for sound on click -->
+    <audio id="bg-audio">
+      <source src="phono1.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <div class="footer-contact" id="contact">
+    CONTACT :<br>Maxence<br>maxence.allain@free.fr<br>07 55 61 45 67
+  </div>
+
+  <script>
+    let current = 0;
+    const images = document.querySelectorAll('.carousel-image');
+    const dots = document.querySelectorAll('.dot');
+    const audio = document.getElementById('bg-audio');
+    let audioStarted = false;
+
+    function showSlide(index) {
+      images[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = index;
+      images[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+    function nextSlide() {
+      showSlide((current + 1) % images.length);
+    }
+    setInterval(nextSlide, 5000);
+
+    function toggleMenu() {
+      const menu = document.getElementById('vinylMenu');
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+      if (!audioStarted) {
+        audio.volume = 0.3;
+        audio.play().catch(e => console.log("Autoplay failed:", e));
+        audioStarted = true;
+      }
+    }
+  </script>
+</body>
+</html>
+
+A ce code précedent, dont je veux garder le background et le titre dynamique, le menu vinyle sonore, Il faudrait intégrer les textes, le carroussel de ce code :
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MakesenSelection - Paysagisme Musical</title>
+  <style>
 
 .vinyl-divider {
   width: 100%;
