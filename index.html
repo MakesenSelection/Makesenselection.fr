@@ -59,27 +59,21 @@ h1 {
   text-align: center;
   margin-top: -1rem;
   margin-bottom: 0.2rem;
+  max-width: 100%;
+  overflow-wrap: break-word;
   background: linear-gradient(270deg, #5a453b, #7d5f48, #3a2e2b, #7d5f48);
   background-size: 400% 400%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: float 4s ease-in-out infinite, waveText 10s ease infinite;
-  word-break: break-word;
 }
 
+@keyframes waveText {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-    h2 {
-      text-align: center;
-      font-size: clamp(1.1rem, 3vw, 1.5rem);
-      margin-bottom: 2rem;
-      font-weight: normal;
-      color: #5a453b;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
 
     .highlight-text {
       background-color: rgba(255, 255, 255, 0.5);
