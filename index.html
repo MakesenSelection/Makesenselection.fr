@@ -17,27 +17,21 @@
 }
 
     body {
-      margin: 0;
-      font-family: Georgia, serif;
-      
+  margin: 0;
+  font-family: Georgia, serif;
+  background: linear-gradient(-45deg, #fbe4d8, #f2c6b5, #e6d5c2, #d6e4e5, #faead1, #f7d7ba, #eed8c1);
+  background-size: 1600% 1600%;
+  animation: gradientBG 20s ease infinite;
+  color: #3a2e2b;
+  line-height: 1.6;
+}
 
-background: linear-gradient(135deg, #f5e4c3, #fbe4d8, #e6d5c2, #f0dbc1, #e3bfa5, #faead1, #f5e4c3);
-background-size: 1000% 1000%;
-animation: gradientBG 30s ease infinite;
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-background-size: 600% 600%;
-animation: gradientBG 16s ease infinite;
-
-      background-size: 600% 600%;
-      animation: gradientBG 8s ease infinite;
-      color: #3a2e2b;
-      line-height: 1.6;
-    }
-
-    @keyframes gradientBG {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
 
     header {
       background-color: rgba(58, 46, 43, 0.9);
