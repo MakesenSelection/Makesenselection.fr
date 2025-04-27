@@ -6,19 +6,29 @@
   <title>MakesenSelection - Musical Landscaping</title>
   <style>
     body {
-      margin: 0;
-      font-family: Georgia, serif;
-      background: linear-gradient(135deg, #fbe4d8, #b3d6f2, #e3a857);
-      background-size: 600% 600%;
-      animation: gradientBG 8s ease infinite;
-      color: #3a2e2b;
-      line-height: 1.6;
-    }
+  margin: 0;
+  font-family: Georgia, serif;
+  background: linear-gradient(270deg,
+    #f5f5f5, /* blanc cassé */
+    #eae2d6, /* beige clair */
+    #dcd2c0, /* crème douce */
+    #f2e8da, /* crème plus chaude */
+    #e0d4c1, /* beige-gris chaud */
+    #f7f1e1, /* blanc crème pastel */
+    #e9e0d3, /* beige rosé très léger */
+    #f5f5f5 /* retour au blanc cassé */
+  );
+  background-size: 1400% 1400%;
+  animation: gradientBG 30s ease infinite;
+  color: #3a2e2b;
+  line-height: 1.6;
+}
 
-    @keyframes gradientBG {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
     header {
       background-color: rgba(58, 46, 43, 0.9);
