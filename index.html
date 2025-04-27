@@ -367,10 +367,10 @@ if (!audioStarted) {
 }
 
 </script>
-<audio id="bg-audio">
+<audio id="click-audio">
   <source src="phono1.wav" type="audio/wav">
-  Your browser does not support the audio element.
 </audio>
+
 
 
 <script>
@@ -393,26 +393,22 @@ if (!audioStarted) {
   setInterval(nextSlide, 5000);
 
   // ---- FOND SONORE ----
-  const audio = document.getElementById('bg-audio');
+  const audio = document.getElementById('click-audio');
   let audioStarted = false;
 
   function toggleMenu() {
-    const audio = document.getElementById('bg-audio');
-let audioStarted = false;
+    const menu = document.getElementById('vinylMenu');
+    menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
 
-function toggleMenu() {
-  const menu = document.getElementById('vinylMenu');
-  menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
-
-  if (!audioStarted) {
-    audio.volume = 0.4; // volume doux
-    audio.play().catch(e => console.log("Lecture audio bloquée :", e));
-    audioStarted = true;
+    if (!audioStarted) {
+      audio.volume = 0.5; // Volume doux
+      audio.play().catch(e => console.log("Lecture audio bloquée :", e));
+      audioStarted = true;
+    }
   }
 
 
-  
-</script>
+  </script>
 
 
 </body>
