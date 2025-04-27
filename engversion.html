@@ -211,8 +211,22 @@ body {
   h1 {
     font-size: 2.5rem; /* Plus petit sur smartphone */
     word-break: break-word;
-  }
+
+  .mariage-highlight ul {
+  list-style: none;
+  padding-left: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #7a6654;
 }
+
+.mariage-highlight ul li::before {
+  content: "– ";
+  color: #a39081; /* beige marronné clair */
+}
+
+  }
+
 
   </style>
 </head>
