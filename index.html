@@ -19,9 +19,22 @@
 body {
   margin: 0;
   font-family: Georgia, serif;
-  background: linear-gradient(270deg, #f8e1e1, #e0f7fa, #ffe0b2);
-  background-size: 600% 600%;
-  animation: gradientBG 20s ease infinite;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.4) 1px, transparent 1px),
+    radial-gradient(circle at 80% 80%, rgba(0,0,0,0.05) 1px, transparent 1px),
+    linear-gradient(270deg,
+      #f7f2ec, /* ivoire très clair */
+      #eae2d6, /* beige doux */
+      #dcd2c0, /* crème sable */
+      #f2e8da, /* crème chaude */
+      #e5ddd5, /* gris chaud pastel */
+      #f7f1e1, /* blanc crème */
+      #e9e0d3, /* beige très léger */
+      #f7f2ec /* retour ivoire */
+    );
+  background-size: 10px 10px, 20px 20px, 1400% 1400%;
+  background-blend-mode: overlay;
+  animation: gradientBG 30s ease infinite;
   color: #3a2e2b;
   line-height: 1.6;
 }
