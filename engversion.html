@@ -47,7 +47,7 @@ body {
       padding: 2rem 1rem;
     }
 
-    h1 {
+   h1 {
   font-size: 4rem;
   text-align: center;
   margin-top: -1rem;
@@ -58,6 +58,15 @@ body {
   animation: float 4s ease-in-out infinite;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+/* Pour les petits écrans (smartphones en portrait) */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 3rem; /* Ajuste la taille de la police pour les petits écrans */
+    white-space: nowrap; /* Empêche le texte de se casser sur plusieurs lignes */
+  }
+
+
 
 
     h2 {
