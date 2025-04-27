@@ -16,28 +16,22 @@
   opacity: 0.5;
 }
 
-    body {
-      margin: 0;
-      font-family: Georgia, serif;
-      
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: linear-gradient(270deg, #f8e1e1, #e0f7fa, #ffe0b2);
+  background-size: 600% 600%;
+  animation: gradientBG 20s ease infinite;
+  color: #3a2e2b;
+  line-height: 1.6;
+}
 
-background: linear-gradient(135deg, #f5e4c3, #fbe4d8, #e6d5c2, #f0dbc1, #e3bfa5, #faead1, #f5e4c3);
-background-size: 1000% 1000%;
-animation: gradientBG 30s ease infinite;
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-background-size: 600% 600%;
-animation: gradientBG 16s ease infinite;
-
-      background-size: 600% 600%;
-      animation: gradientBG 8s ease infinite;
-      color: #3a2e2b;
-      line-height: 1.6;
-    }
-
-    @keyframes gradientBG {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
 
     header {
       background-color: rgba(58, 46, 43, 0.9);
@@ -212,6 +206,14 @@ h1 {
       padding: 1rem;
       font-size: 1.1rem;
     }
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.8rem;
+    word-break: break-word;
+  }
+
+
   </style>
 </head>
   <audio id="bg-audio" loop>
@@ -395,9 +397,21 @@ if (!audioStarted) {
   let audioStarted = false;
 
   function toggleMenu() {
-    const menu = document.getElementById('vinylMenu');
-    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    const audio = document.getElementById('bg-audio');
+let audioStarted = false;
+
+function toggleMenu() {
+  const menu = document.getElementById('vinylMenu');
+  menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+
+  if (!audioStarted) {
+    audio.volume = 0.4; // volume doux
+    audio.play().catch(e => console.log("Lecture audio bloquée :", e));
+    audioStarted = true;
   }
+
+
+  
 </script>
 
 
