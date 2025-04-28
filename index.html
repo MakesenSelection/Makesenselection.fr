@@ -244,8 +244,25 @@ h1 {
     word-break: break-word;
   }
 
+
+.separator {
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(to right, #c2a48c, #99806d);
+  margin: 2rem auto;
+  border-radius: 2px;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: center;
+  animation: growLine 2s ease forwards;
 }
 
+@keyframes growLine {
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
 
   </style>
 </head>
@@ -263,6 +280,8 @@ h1 {
   <div class="container">
     <h1>MakesenSelection</h1>
     <h2>Paysagisme Musical</h2>
+    <div class="separator"></div>
+
 
     <p style="text-align: center; margin-top: -1rem;">
       <strong>Ambiances musicales raffinées pour mariages,<br>
