@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MakesenSelection - Musical Landscaping</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: linear-gradient(270deg, #f8f4ec, #eae2d6, #dcd2c0, #f2e8da, #e5ddd5, #f7f1e1, #e9e0d3, #f8f4ec);
+      background-size: 1400% 1400%;
+      animation: gradientBG 30s ease infinite;
+      color: #3a2e2b;
+      line-height: 1.6;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      background-color: rgba(58, 46, 43, 0.9);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    h1 {
+      font-size: 4rem;
+      text-align: center;
+      margin-top: -1rem;
+      margin-bottom: 0.2rem;
+      background: linear-gradient(90deg, #a39081, #c2a48c, #99806d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: float 4s ease-in-out infinite;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      word-break: break-word;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    h2 {
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 2rem;
+      font-weight: normal;
+      color: #5a453b;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    .carousel-wrapper {
+      margin: 2rem auto;
+      position: relative;
+      max-width: 800px;
+    }
+
+    .carousel-fade {
+      position: relative;
+      width: 100%;
+      height: 450px;
+      overflow: hidden;
+    }
+
+    .carousel-image {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      border-radius: 12px;
+    }
+
+    .carousel-image.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .carousel-dots {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .carousel-dots .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      background-color: #aaa;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .carousel-dots .dot.active {
+      background-color: #3a2e2b;
+    }
+
+    .highlight-text, .mariage-highlight {
+      background-color: rgba(255, 255, 255, 0.5);
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+    }
+
+    .spotify-player, .audio-player {
+      margin: 3rem 0;
+    }
+
+    .footer-contact {
+      background: linear-gradient(90deg, #eae2d6, #f7f1e1, #e9e0d3);
+      color: #5a453b;
+      padding: 2rem 1rem;
+      text-align: center;
+      font-size: 1.2rem;
+      font-family: Georgia, serif;
+      border-top: 2px solid #dcd2c0;
+      box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+      letter-spacing: 0.5px;
+    }
+
+    .footer-contact a {
+      color: #7a6654;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .footer-contact a:hover {
+      color: #99806d;
+      text-decoration: underline;
+    }
+
+    .vinyl-button {
+      position: fixed;
+      top: 50%;
+      right: 7%;
+      transform: translateY(-50%);
+      width: 70px;
+      height: 70px;
+      cursor: pointer;
+      animation: spin 8s linear infinite;
+      z-index: 998;
+    }
+
+    @keyframes spin {
+      from { transform: translateY(-50%) rotate(0deg); }
+      to { transform: translateY(-50%) rotate(360deg); }
+    }
+
+    .menu-popup {
+      position: fixed;
+      top: 25%;
+      right: 48px;
+      transform: translateY(-50%);
+      background-color: rgba(58, 46, 43, 0.9);
+      color: white;
+      padding: 1rem;
+      border-radius: 10px;
+      display: none;
+      flex-direction: column;
+      gap: 0.5rem;
+      z-index: 1010;
+    }
+
+    .menu-popup a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .menu-popup a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header></header>
+
+  <div class="container">
+    <h1>MakesenSelection</h1>
+    <h2>Musical Landscaping</h2>
+
+    <div class="carousel-wrapper">
+      <div class="carousel-fade">
+        <img src="images/radiodb.jpg" class="carousel-image active">
+        <img src="images/tmwedding.jpg" class="carousel-image">
+        <img src="images/cac21.jpg" class="carousel-image">
+      </div>
+      <div class="carousel-dots">
+        <span class="dot active" onclick="showSlide(0)"></span>
+        <span class="dot" onclick="showSlide(1)"></span>
+        <span class="dot" onclick="showSlide(2)"></span>
+      </div>
+    </div>
+
+    <div id="apropos" class="highlight-text">
+      <p>Sample text about your service.</p>
+    </div>
+
+    <div class="spotify-player" id="univers">
+      <iframe src="https://open.spotify.com/embed/playlist/..." width="100%" height="352"></iframe>
+    </div>
+
+    <div class="audio-player" id="soundcloud">
+      <iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/..." width="100%" height="450"></iframe>
+    </div>
+  </div>
+
+  <div class="footer-contact" id="contact">
+    Contact: Maxence<br>
+    <a href="mailto:maxence.allain@free.fr">maxence.allain@free.fr</a><br>
+    <a href="tel:+33755614567">07 55 61 45 67</a>
+  </div>
+
+  <img src="images/vinyl2.png" class="vinyl-button" onclick="toggleMenu()" alt="Menu vinyl">
+  <div class="menu-popup" id="vinylMenu">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+  </div>
+
+  <script>
+    let current = 0;
+    const images = document.querySelectorAll('.carousel-image');
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlide(index) {
+      images[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = index;
+      images[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    function nextSlide() {
+      showSlide((current + 1) % images.length);
+    }
+
+    setInterval(nextSlide, 5000);
+
+    let audioStarted = false;
+    const audio = document.getElementById('bg-audio');
+
+    function toggleMenu() {
+      const menu = document.getElementById('vinylMenu');
+      menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+
+      if (!audioStarted) {
+        audio.volume = 0.3;
+        audio.play().catch(e => console.log("Autoplay failed:", e));
+        audioStarted = true;
+      }
+    }
+  </script>
+
+  <audio id="bg-audio">
+    <source src="phono1.wav" type="audio/wav">
+  </audio>
+</body>
+</html>
