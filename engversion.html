@@ -1,0 +1,444 @@
+  <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MakesenSelection - Musical Landscaping</title>
+  <style>
+    
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: linear-gradient(270deg,
+    #f8f4ec,
+    #eae2d6,
+    #dcd2c0,
+    #f2e8da,
+    #e5ddd5,
+    #f7f1e1,
+    #e9e0d3,
+    #f8f4ec
+  );
+  background-size: 1400% 1400%;
+  animation: gradientBG 30s ease infinite;
+  color: #3a2e2b;
+  line-height: 1.6;
+}
+
+/* Animation de fond */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+    header {
+      background-color: rgba(58, 46, 43, 0.9);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    h1 {
+  font-size: 4rem;
+  text-align: center;
+  margin-top: -1rem;
+  margin-bottom: 0.2rem;
+  background: linear-gradient(90deg, #a39081, #c2a48c, #99806d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: float 4s ease-in-out infinite;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+    h2 {
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 2rem;
+      font-weight: normal;
+      color: #5a453b;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .highlight-text {
+      background-color: rgba(255, 255, 255, 0.5);
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+    }
+
+    .mariage-highlight {
+      text-align: center;
+      font-weight: bold;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.4);
+      border-radius: 12px;
+    }
+
+    .carousel-wrapper {
+      margin: 2rem auto;
+      position: relative;
+      max-width: 800px;
+    }
+
+    .carousel-fade {
+      position: relative;
+      width: 100%;
+      height: 450px;
+      overflow: hidden;
+    }
+
+    .carousel-image {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      border-radius: 12px;
+    }
+
+    .carousel-image.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .carousel-dots {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .carousel-dots .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      background-color: #aaa;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .carousel-dots .dot.active {
+      background-color: #3a2e2b;
+    }
+
+    iframe.spotify {
+      width: 100%;
+      height: 152px;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .spotify-player, .audio-player {
+      margin: 3rem 0;
+    }
+
+    /* Vinyl menu */
+    .vinyl-button {
+      position: fixed;
+      top: 50%;
+      right: 7%;
+      transform: translateY(-50%);
+      width: 70px;
+      height: 70px;
+      cursor: pointer;
+      animation: spin 8s linear infinite;
+      z-index: 998;
+    }
+
+    @keyframes spin {
+      from { transform: translateY(-50%) rotate(0deg); }
+      to { transform: translateY(-50%) rotate(360deg); }
+    }
+
+    .menu-popup {
+      position: fixed;
+      top: 25%;
+      right: 48px;
+      transform: translateY(-50%);
+      background-color: rgba(58, 46, 43, 0.9);
+      color: white;
+      padding: 1rem;
+      border-radius: 10px;
+      display: none;
+      flex-direction: column;
+      gap: 0.5rem;
+      z-index: 1010;
+    }
+
+    .menu-popup a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .menu-popup a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      margin: 3rem 0 0;
+      color: #7b6e65;
+    }
+
+    /* Bandeau de contact */
+    .footer-contact {
+      background-color: rgba(58, 46, 43, 0.9);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.1rem;
+    }
+
+     @media (max-width: 600px) {
+  h1 {
+    font-size: 2.5rem; /* Plus petit sur smartphone */
+    word-break: break-word;
+
+  .mariage-highlight ul {
+  list-style: none;
+  padding-left: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #7a6654;
+}
+
+.mariage-highlight ul li::before {
+  content: "– ";
+  color: #a39081; /* beige marronné clair */
+}
+
+  <head>
+  <meta charset="UTF-8">
+  <title>Ton Site</title>
+
+  <style>
+    /* Ton autre CSS ici : body, h1, etc. */
+
+    /* Ajoute ici ton nouveau code */
+    .footer-contact {
+      background: linear-gradient(90deg, #eae2d6, #f7f1e1, #e9e0d3);
+      color: #5a453b;
+      padding: 2rem 1rem;
+      text-align: center;
+      font-size: 1.2rem;
+      font-family: Georgia, serif;
+      border-top: 2px solid #dcd2c0;
+      box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+      letter-spacing: 0.5px;
+    }
+
+    .footer-contact p {
+      margin: 0.5rem 0;
+    }
+
+    .footer-contact span {
+      display: block;
+      font-weight: bold;
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      color: #7a6654;
+    }
+
+    .footer-contact a {
+      color: #7a6654;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .footer-contact a:hover {
+      color: #99806d;
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+
+
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <!-- "MakesenSelection" retiré du bandeau du haut -->
+  </header>
+
+  <div class="container">
+    <h1>MakesenSelection</h1>
+    <h2>Musical Landscaping</h2>
+
+    <p style="text-align: center; margin-top: -1rem;">
+      <strong>Refined musical atmospheres for weddings,<br>
+banquets, private parties, and intimate events.</strong>
+    </p>
+
+    <!-- Carrousel -->
+    <div class="carousel-wrapper">
+      <div class="carousel-fade">
+        <img src="images/radiodb.jpg" class="carousel-image active">
+        <img src="images/tmwedding.jpg" class="carousel-image">
+        <img src="images/cac21.jpg" class="carousel-image">
+        <img src="images/KSB.jpg" class="carousel-image">
+        <img src="images/pyjback.jpg" class="carousel-image">
+        <img src="images/pyjfront.jpg" class="carousel-image">
+        <img src="images/mandeldb.jpg" class="carousel-image">
+        <img src="images/mt150.jpg" class="carousel-image">
+        <img src="images/mt137.jpg" class="carousel-image">
+        <img src="images/mt141.jpg" class="carousel-image">
+        <img src="images/mt76.jpg" class="carousel-image">
+        <img src="images/mt196.jpg" class="carousel-image">
+      </div>
+      <div class="carousel-dots">
+        <span class="dot active" onclick="showSlide(0)"></span>
+        <span class="dot" onclick="showSlide(1)"></span>
+        <span class="dot" onclick="showSlide(2)"></span>
+        <span class="dot" onclick="showSlide(3)"></span>
+        <span class="dot" onclick="showSlide(4)"></span>
+        <span class="dot" onclick="showSlide(5)"></span>
+        <span class="dot" onclick="showSlide(6)"></span>
+        <span class="dot" onclick="showSlide(7)"></span>
+        <span class="dot" onclick="showSlide(8)"></span>
+        <span class="dot" onclick="showSlide(9)"></span>
+        <span class="dot" onclick="showSlide(10)"></span>
+        <span class="dot" onclick="showSlide(11)"></span>
+      </div>
+    </div>
+
+    <!-- Texte principal -->
+    <div id="apropos" class="highlight-text">
+      <p>Eclectic, sensitive, and off-the-beaten-path selections: ambient, jazz, hard-lounge, soft rock, pop, soul & neo-soul, real hip-hop, disco, funk, New York house, Detroit techno, Afro-Brazilian rhythms, groove rarities, timeless gems and anthems of all kinds.</p>
+      <p>Each set is a story — a sonic journey that honors the moment, its rhythm, its own unique energy. No Top 50 of today’s commercial ugliness here, but cult tracks, well-known classics, forgotten treasures or unknown wonders, all chosen for their quality and power.</p>
+      <p>A music lover from an early age, I started spinning records at 18 on Radio Campus in Orléans, before moving on to my first gigs in a dancing bar in Annecy during my studies — a legendary spot that has since closed down.</p>
+      <p>Cradled by the French Touch (Daft Punk, Cassius, etc...), I was soon lured by the sirens of Berlin's underground, eventually opening a few club doors to play records. From radios to bars, clubs, festivals, pajama parties, and banquets — I adapt, always guided by a sense of quality and adventure.</p>
+      <p>Between elegance and warmth, between dance and contemplation: a musical aesthetic crafted to move both body and soul — from the cocktail hour to the afterparty :)</p>
+      <p>With nearly 15 years living abroad, including 10 in Berlin, a multicultural sensibility naturally developed, making it easy for me to feel right at home in these kinds of settings.</p>
+      <p>If you consider that music is a pivotal element within the magic of your event, then it is not a coincidence that you are currently on this internet page : )</p>
+
+
+    <div class="mariage-highlight">
+      <ul>
+      <p>For weddings: starting with familiar musical comfort zones to please everyone, then diving into deeper waters as the night unfolds!</p>
+      <li><<p>Musical performance with or without sound system / lighting.</p></li>
+      <li><p>Vinyl Bar option available.</p></li>
+      <li><p>Vinyl & digital setup.</p></li>
+      <li><p>Based in the Lot (46), available for travel :)</p></li>
+      </ul>
+
+    </div>
+
+    <div class="spotify-player" id="univers">
+     <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3U1tn4Y1bnUWfYLDzW20Ec?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+     <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/53CFscgG1ziINBiMmycTOD?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe> 
+     <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4RW2pUuSJbNeKnMWBNvPEd?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe> 
+    </div>
+
+    <div class="audio-player" id="soundcloud">
+       <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1568413906&color=%23a4723d&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/m-a-x-e-n-c-e" title="m a x e n c e" target="_blank" style="color: #cccccc; text-decoration: none;">m a x e n c e</a> · <a href="https://soundcloud.com/m-a-x-e-n-c-e/sets/kir-shows" title="Radio Shows" target="_blank" style="color: #cccccc; text-decoration: none;">Radio Shows</a></div>
+    </div>
+  </div>
+
+  <!-- Bandeau de contact en bas -->
+  <div class="footer-contact" id="contact">
+    CONTACT :<br>Maxence<br>maxence.allain@free.fr<br>0033 7 55 61 45 67
+  </div>
+
+  <!-- Vinyl menu -->
+  <img src="images/vinyl2.png" class="vinyl-button" onclick="toggleMenu()" alt="Menu vinyle" />
+  <div class="menu-popup" id="vinylMenu">
+    <a href="index.html">Français</a>
+    <a href="#apropos">About</a>
+    <a href="#univers">Music Spectrums</a>
+    <a href="https://soundcloud.com/m-a-x-e-n-c-e" target="_blank">Soundcloud</a>
+    <a href="https://open.spotify.com/user/mcsens?si=22f4cb872c104eee" target="_blank">Spotify</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <footer>&copy; 2025 – MakesenSelection - Musical Landscaping</footer>
+
+  <script>
+    let current = 0;
+    const images = document.querySelectorAll('.carousel-image');
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlide(index) {
+      images[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = index;
+      images[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    function nextSlide() {
+      showSlide((current + 1) % images.length);
+    }
+
+    setInterval(nextSlide, 5000);
+
+    function toggleMenu() {
+      const menu = document.getElementById('vinylMenu');
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    }
+  </script>
+    </script>
+<audio id="bg-audio">
+  <source src="phono1.wav" type="audio/wav">
+  Your browser does not support the audio element.
+</audio>
+
+
+<script>
+  let current = 0;
+  const images = document.querySelectorAll('.carousel-image');
+  const dots = document.querySelectorAll('.dot');
+
+  function showSlide(index) {
+    images[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = index;
+    images[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  function nextSlide() {
+    showSlide((current + 1) % images.length);
+  }
+
+  setInterval(nextSlide, 5000);
+
+  // ---- FOND SONORE ----
+  const audio = document.getElementById('bg-audio');
+  let audioStarted = false;
+
+  function toggleMenu() {
+    const menu = document.getElementById('vinylMenu');
+    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+
+    // Lancer la musique si elle n’a pas encore commencé
+    if (!audioStarted) {
+      audio.volume = 0.3; // volume réduit pour ambiance discrète
+      audio.play().catch(e => console.log("Autoplay failed:", e));
+      audioStarted = true;
+    }
+    
+</script>
+    
+</body>
+</html>
