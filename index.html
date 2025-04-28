@@ -82,6 +82,9 @@ h1 {
 
 
     h2 {
+      
+      <div class="separator"></div>
+
       text-align: center;
       font-style: italic;
       margin-bottom: 2rem;
@@ -241,6 +244,22 @@ h1 {
     font-size: 2.8rem;
     word-break: break-word;
   }
+
+  .separator {
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #c2a48c, #99806d);
+  margin: 2rem auto;
+  border-radius: 2px;
+  animation: growLine 2s ease forwards;
+}
+
+@keyframes growLine {
+  to {
+    width: 120px;
+  }
+}
+
 
 
   </style>
