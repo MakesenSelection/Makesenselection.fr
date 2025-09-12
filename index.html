@@ -293,6 +293,16 @@
     .testimonial-ribbon .testimonial.active {
       opacity: 1;
     }
+
+    .image-error {
+      border: 2px dashed #ff6b6b;
+      background-color: #fff9f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ff6b6b;
+      font-style: italic;
+    }
   </style>
 </head>
 
@@ -331,7 +341,7 @@
         <img src="images/event-dj-vinyl-occitanie.jpg" class="carousel-image" alt="Refined musical selection on vinyls for your wedding and events in Occitanie, France.">
         <img src="images/viny-wedding-refined-musical-selection-djing.jpg" class="carousel-image" alt="Classy and stylish vinyl musical selection for your wedding in Occitanie.">
         <img src="images/vinyl-dj-performance-for-weddings.jpg" class="carousel-image" alt="Wedding DJ mixing on vinyls for your wedding, good hits not bad hits, in Occitanie France.">
-        <img src="images/montage-carrousel1.png" class="carousel-image" alt="DJ mixing on vinyls for corporate events, great lounge music, in Occitanie France.">
+        <img src="images/montage-carrousel.jpg" class="carousel-image image-error" alt="Image non chargée - Vérifier le chemin et le format" onerror="this.classList.add('image-error'); this.alt='Image non chargée - Vérifier le chemin et le format';">
       </div>
       <div class="carousel-dots">
         <span class="dot active" data-index="0"></span>
@@ -357,7 +367,7 @@
       <p>Mélomane depuis un jeune âge, dès 18 ans je passe mes premiers disques sur Radio Campus à Orléans, avant de faire mes armes du dancefloor dans une institution annécienne lors de mes études. Avec 15 années à l'étranger, dont 10 à Berlin, ma fibre multiculturelle s'exprime aujourd'hui à travers une sélection musicale exigeante et authentique.</p>
       <p>Berçé par la French Touch (Daft Punk, Cassius, etc...), puis attiré par l'underground berlinois, j'ai mixé en radios, clubs, festivals, bars et lieux atypiques. Chaque lieu appelle une vibration musicale propre, entre danse et contemplation, entre chaleur et élégance. Mon approche est aussi bien adaptée aux mariages qu'aux fêtes privées ou événements culturels.</p>
       <p>Je mixe exclusivement sur <strong>disques vinyles</strong> et platines CDJ, avec une recherche de textures sonores organiques, de raretés oubliées, de grooves méconnus, sans oublier de super tubes connus et fédérateurs. Ici, pas de playlists prédéfinies ni de standards commerciaux, mais une sélection musicale <strong>originale, curieuse et aventureuse</strong>.</p>
-      <p>Basé en <strong>Occitanie</strong>, je me déplace pour des événements à <strong>Toulouse, Bordeaux, Montpellier, et bien sûr à proximité du Lot</strong> et dans toute la région. Que ce soit pour un mariage élégant, une soirée alternative, un banquet festif ou un vernissage contemplatif, mon objective est d'offrir un moment sonore unique, sincère et vivant.</p>
+      <p>Basé en <strong>Occitanie</strong>, je me déplace pour des événements à <strong>Toulouse, Bordeaux, Montpellier, et bien sûr à proximité du Lot</strong> et dans toute la région. Que ce soit pour un mariage élégant, una soirée alternative, un banquet festif ou un vernissage contemplatif, mon objectif est d'offrir un moment sonore unique, sincère et vivant.</p>
       <p><em>MakeSenselection, c'est l'alliance du vinyle, de l'intuition musicale et de l'écoute de l'instant. Un <strong>DJ atypique en Occitanie</strong> pour celles et ceux qui cherchent plus qu'un simple fond sonore.</em></p>
     </div>
 
@@ -365,7 +375,7 @@
       <ul>
         <p><strong>POUR LES MARIAGES</strong></p>
         <li>Prestation musicale avec ou sans sonorisation / lumières.</li><br>
-        <li>Option Bar à Vinyles pour le cocktail et le repas.</li><br>
+        <li>Option Bar à Vinyles pour le cocktail et the repas.</li><br>
         <li>Setup vinyle & digital, sans séparation faite par un écran d'ordinateur.</li><br>
         <li>Prestation dj soirée avec son matériel, jusqu'à 4h du matin.</li><br>
         <li>Prenez contact pour un devis personnalisé.</li><br>
@@ -482,6 +492,17 @@
       currentTestimonial = (currentTestimonial + 1) % testimonials.length;
       showTestimonial(currentTestimonial);
     }, 8000); // Changé de 5000 à 8000 ms pour ralentir le défilement
+
+    // Vérification du chargement des images
+    window.addEventListener('load', function() {
+      images.forEach(img => {
+        if (!img.complete || img.naturalHeight === 0) {
+          console.error(`Image non chargée: ${img.src}`);
+          img.classList.add('image-error');
+          img.alt = 'Image non chargée - Vérifier le chemin et le format';
+        }
+      });
+    });
   </script>
 </body>
 </html>
