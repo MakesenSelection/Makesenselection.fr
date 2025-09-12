@@ -268,6 +268,37 @@ h1 {
   }
 }
 
+/* Ruban Témoignages */
+.testimonial-ribbon {
+  width: 100%;
+  overflow: hidden;
+  background: rgba(58, 46, 43, 0.7); /* fond sombre semi-transparent */
+  color: #fff;
+  font-style: italic;
+  font-size: 1rem;
+  white-space: nowrap;
+  padding: 0.6rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  margin: 2rem 0;
+}
+
+.testimonial-track {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scrollTestimonials 30s linear infinite;
+}
+
+.testimonial-track p {
+  display: inline-block;
+  margin: 0 3rem;
+}
+
+@keyframes scrollTestimonials {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+
 
   </style>
 </head>
@@ -351,6 +382,19 @@ h1 {
       <li>Basé dans le Lot (46), déplacements évidemment possibles :)</li><br>
      </ul>
     </div>
+
+<!-- Ruban Témoignages -->
+<div class="testimonial-ribbon">
+  <div class="testimonial-track">
+    <p>✨ "J’ai fait appel à Maxence pour la musique de mon mariage : c’était une très belle réussite. Maxence a une palette large et un goût fin, et il saisit bien les dynamiques afin de toujours proposer le bon morceau au bon moment (en accord avec nos goûts évidemment). Résultat : l’ambiance est montée crescendo et tous les invités (de tous les âges) se sont finalement déhanchés pendant des heures ! Ça change du DJ habituel, qui prend le même tarif (voire plus) pour passer les mêmes sons éculés depuis des décennies. Je recommande chaudement !" – Claire & Julien</p>
+    <p>✨ "Nous avons sollicité Maxence pour l'inauguration de notre agence de courtage en crédit à Villefranche de Rouergue.
+Sa prestation répondait exactement à nos attentes. Nous étions ravies de pouvoir avoir un DJ différent de ceux que nous avons l'habitude de voir. Merci à toi et qui sait, peut être à bientôt pour d'autres événements !" – La Team ICC Finance</p>
+    <p>✨ "Maxence a su comprendre ce qu’on attend d’un DJ, et il a été très bon.
+Sa gentillesse et son écoute contribue également à l’attachement qu’on y porte.
+Merci à lui, car grâce à son travail notre mariage n’aurait pas été le même." – Marc & Florine</p>
+  </div>
+</div>
+
 
     <div class="vinyl-divider"></div>
     <div class="spotify-player" id="univers">
