@@ -271,16 +271,28 @@ h1 {
 /* Ruban Témoignages */
 .testimonial-ribbon {
   width: 100%;
-  overflow: hidden;
-  background: rgba(58, 46, 43, 0.7); /* fond sombre semi-transparent */
+  background: rgba(58, 46, 43, 0.7);
   color: #fff;
   font-style: italic;
   font-size: 1rem;
-  white-space: nowrap;
-  padding: 0.6rem 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  margin: 2rem 0;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+  min-height: 60px; /* Pour éviter que la hauteur change */
+  overflow: hidden;
 }
+
+.testimonial-ribbon .testimonial {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
 
 .testimonial-track {
   display: inline-block;
@@ -385,15 +397,11 @@ h1 {
 
 <!-- Ruban Témoignages -->
 <div class="testimonial-ribbon">
-  <div class="testimonial-track">
-    <p>✨ "J’ai fait appel à Maxence pour la musique de mon mariage : c’était une très belle réussite. Maxence a une palette large et un goût fin, et il saisit bien les dynamiques afin de toujours proposer le bon morceau au bon moment (en accord avec nos goûts évidemment). Résultat : l’ambiance est montée crescendo et tous les invités (de tous les âges) se sont finalement déhanchés pendant des heures ! Ça change du DJ habituel, qui prend le même tarif (voire plus) pour passer les mêmes sons éculés depuis des décennies. Je recommande chaudement !" – Claire & Julien</p>
-    <p>✨ "Nous avons sollicité Maxence pour l'inauguration de notre agence de courtage en crédit à Villefranche de Rouergue.
-Sa prestation répondait exactement à nos attentes. Nous étions ravies de pouvoir avoir un DJ différent de ceux que nous avons l'habitude de voir. Merci à toi et qui sait, peut être à bientôt pour d'autres événements !" – La Team ICC Finance</p>
-    <p>✨ "Maxence a su comprendre ce qu’on attend d’un DJ, et il a été très bon.
-Sa gentillesse et son écoute contribue également à l’attachement qu’on y porte.
-Merci à lui, car grâce à son travail notre mariage n’aurait pas été le même." – Marc & Florine</p>
-  </div>
+  <p class="testimonial">✨ "J’ai fait appel à Maxence pour la musique de mon mariage..." – Thomas & Monika</p>
+  <p class="testimonial">✨ "Nous avons sollicité Maxence pour l'inauguration de notre agence..." – La Team ICC Finance</p>
+  <p class="testimonial">✨ "Maxence a su comprendre ce qu’on attend d’un DJ..." – Marc & Florine</p>
 </div>
+
 
 
     <div class="vinyl-divider"></div>
@@ -529,8 +537,36 @@ if (!audioStarted) {
   }
 
 
-  </script>
+<!-- Ruban Témoignages -->
+<div class="testimonial-ribbon">
+  <p class="testimonial">✨ "J’ai fait appel à Maxence pour la musique de mon mariage..." – Claire & Julien</p>
+  <p class="testimonial">✨ "Nous avons sollicité Maxence pour l'inauguration de notre agence..." – La Team ICC Finance</p>
+  <p class="testimonial">✨ "Maxence a su comprendre ce qu’on attend d’un DJ..." – Marc & Florine</p>
+</div>
 
+<!-- Autres sections du site -->
+
+<!-- Script pour faire défiler les témoignages -->
+<script>
+const testimonials = document.querySelectorAll('.testimonial-ribbon .testimonial');
+let currentTestimonial = 0;
+
+function showTestimonial(index) {
+  testimonials.forEach((t, i) => {
+    t.style.opacity = i === index ? '1' : '0';
+  });
+}
+
+// Affiche le premier témoignage
+showTestimonial(currentTestimonial);
+
+// Change le témoignage toutes les 5 secondes
+setInterval(() => {
+  currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+  showTestimonial(currentTestimonial);
+}, 5000);
+</script>
 
 </body>
 </html>
+
